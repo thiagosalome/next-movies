@@ -1,0 +1,18 @@
+Requisitos Técnicos:
+  ☐ Utilizar NextJS
+    ☐ Utilizar tag Link
+    ☐ Utilizar diretório public para imagens
+    ☐ Utilizar tag Head
+    ☐ Utilizar Layout Component
+    ☐ Utilizar Global Styles
+    ☐ Utilizar getStaticProps para Static Generation
+    ☐ Utilizar getStaticPaths para Dynamic Routes
+    ☐ Utilizar API routes
+  ☐ Utilizar TailwindCSS
+    ☐ Mobile First
+    ☐ Hover, Focus, & Other States (Hover, Groups-hover, Focus-within)
+    ☐ Dark Mode
+    ☐ Adding Base Styles (Fonts)
+    ☐ Extracting Components (Componentes repetidos)
+    ☐ Adding New Utilities
+    ☐ Functions & Directives (@tailwind, @apply, @layer, @variants)
