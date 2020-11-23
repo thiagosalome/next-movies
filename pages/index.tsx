@@ -10,28 +10,22 @@ export default function Home() {
         <title>Next Movies</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <header className='bg-white py-3'>
-        <div className='container flex items-center'>
-          <button>
-            <FiMenu color='#91204D' size={32}  />
-          </button>
-          <img className='ml-3' src='/images/logo.png' alt='Next Movies' title='Next Movies' />
-          <button className='ml-auto'>
-            <FiMoon color='#91204D' size={32} />
-          </button>
-        </div>
+      <header className='bg-white py-3 px-4 flex items-center'>
+        <button>
+          <FiMenu color='#91204D' size={32}  />
+        </button>
+        <img className='ml-3' src='/images/logo.png' alt='Next Movies' title='Next Movies' />
+        <button className='ml-auto'>
+          <FiMoon color='#91204D' size={32} />
+        </button>
       </header>
-      <div className='bg-white py-5'>
-        <div className='container'>
-          <h2 className='text-xl font-medium text-orange'>Streaming</h2>
-        </div>
+      <div className='bg-white py-5 px-4'>
+        <h2 className='text-xl font-medium text-orange'>Streaming</h2>
       </div>
-      <main className='bg-gray-100 rounded-tl-3xl py-8'>
+      <main className='bg-gray-100 rounded-tl-3xl py-8 px-4'>
         <section id='ultimos-trailers'>
-          <header className='px-4'>
-            <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
-          </header>
-          <div className='grid grid-cols-card-trailers grid-rows-6 overflow-x-auto gap-4 my-6 px-4'>
+          <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
+          <div className='grid grid-cols-card-trailers grid-rows-6 overflow-x-auto gap-4 my-6 px-4 -mx-4'>
             <div className='row-start-1 row-end-4 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
@@ -85,59 +79,53 @@ export default function Home() {
           </div>
         </section>
         <section id='empresas'>
-          <div className='container'>
-            <header>
-              <h3 className='text-xl font-medium text-black'>Empresas</h3>
-            </header>
-            <div className='flex flex-col my-6'>
-              <div className='bg-white p-3 rounded-2xl flex items-center justify-center mb-5'>
-                <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
-                  <img className='object-cover w-full h-full' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/407px-Netflix_icon.svg.png' alt='Netflix'/>
-                </figure>
-                <div className='mx-4'>
-                  <h4 className='text-base text-black mb-1'>Netflix</h4>
-                  <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                </div>
-                <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+          <h3 className='text-xl font-medium text-black'>Empresas</h3>
+          <div className='my-6 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-5'>
+            <div className='bg-white p-3 rounded-2xl inline-flex items-center mb-5 lg:mb-0'>
+              <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
+                <img className='object-cover w-full h-full' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/407px-Netflix_icon.svg.png' alt='Netflix'/>
+              </figure>
+              <div className='mx-4'>
+                <h4 className='text-base text-black mb-1'>Netflix</h4>
+                <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
-              <div className='bg-white p-3 rounded-2xl flex items-center justify-center mb-5'>
-                <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
-                  <img className='object-cover w-full h-full' src='https://cdn6.aptoide.com/imgs/1/f/0/1f0feac18fbdaf45b63aaabae4ff3362_icon.png?w=160' alt='Amazon Prime Video'/>
-                </figure>
-                <div className='mx-4'>
-                  <h4 className='text-base text-black mb-1'>Amazon Prime Video</h4>
-                  <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                </div>
-                <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+              <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+            </div>
+            <div className='bg-white p-3 rounded-2xl inline-flex items-center mb-5 lg:mb-0'>
+              <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
+                <img className='object-cover w-full h-full' src='https://cdn6.aptoide.com/imgs/1/f/0/1f0feac18fbdaf45b63aaabae4ff3362_icon.png?w=160' alt='Amazon Prime Video'/>
+              </figure>
+              <div className='mx-4'>
+                <h4 className='text-base text-black mb-1'>Amazon Prime Video</h4>
+                <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
-              <div className='bg-white p-3 rounded-2xl flex items-center justify-center mb-5'>
-                <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
-                  <img className='object-cover w-full h-full' src='https://cdn.mos.cms.futurecdn.net/ZaaM8Q3hpBHatBqMw8EUDF-970-80.jpg.webp' alt='Disney +'/>
-                </figure>
-                <div className='mx-4'>
-                  <h4 className='text-base text-black mb-1'>Disney +</h4>
-                  <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                </div>
-                <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+              <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+            </div>
+            <div className='bg-white p-3 rounded-2xl inline-flex items-center mb-5 lg:mb-0'>
+              <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
+                <img className='object-cover w-full h-full' src='https://cdn.mos.cms.futurecdn.net/ZaaM8Q3hpBHatBqMw8EUDF-970-80.jpg.webp' alt='Disney +'/>
+              </figure>
+              <div className='mx-4'>
+                <h4 className='text-base text-black mb-1'>Disney +</h4>
+                <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
-              <div className='bg-white p-3 rounded-2xl flex items-center justify-center mb-5'>
-                <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
-                  <img className='object-cover w-full h-full' src='https://assets.materialup.com/uploads/147cc4e7-d765-4e1d-a329-cb51e3dd7b9c/preview.jpg' alt='Plex'/>
-                </figure>
-                <div className='mx-4'>
-                  <h4 className='text-base text-black mb-1'>Plex</h4>
-                  <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                </div>
-                <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+              <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
+            </div>
+            <div className='bg-white p-3 rounded-2xl inline-flex items-center mb-5 lg:mb-0'>
+              <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
+                <img className='object-cover w-full h-full' src='https://assets.materialup.com/uploads/147cc4e7-d765-4e1d-a329-cb51e3dd7b9c/preview.jpg' alt='Plex'/>
+              </figure>
+              <div className='mx-4'>
+                <h4 className='text-base text-black mb-1'>Plex</h4>
+                <p className='col-span-2 text-xs text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
+              <a className='p-1 px-2 mw-20 flex-shrink-0 rounded bg-orange text-white text-base text-center uppercase font-semibold' href='http://' target='_blank' rel='noopener noreferrer'>R$ 19,99</a>
             </div>
           </div>
         </section>
         <section id='os-mais-populares'>
-          <header className='px-4'>
-            <h3 className='text-xl font-medium text-black'>Os mais populares</h3>
-          </header>
-          <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 overflow-x-auto'>
+          <h3 className='text-xl font-medium text-black'>Os mais populares</h3>
+          <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto'>
             <div className='bg-white rounded-xl p-4'>
               <figure className='overflow-hidden w-full h-60 rounded-xl'>
                 <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/tn8viCBxP2xdQ7SS2fww7zeoPwe.jpg' alt='Os Simpsons' />
