@@ -12,6 +12,7 @@ module.exports = {
       sans: ['Rubik', 'sans-serif']
     },
     colors: {
+      transparent: 'transparent',
       white: '#FFFFFF',
       orange: '#FA5302',
       wine: '#91204D',

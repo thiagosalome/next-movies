@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { FiMenu, FiMoon } from 'react-icons/fi'
+import { FiMenu, FiMoon, FiSearch } from 'react-icons/fi'
 import { FaPlay } from 'react-icons/fa'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         <title>Next Movies</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <header className='bg-white py-3 px-4 flex items-center'>
+      <header className='bg-white py-3 px-4 flex items-center xl:hidden'>
         <button>
           <FiMenu color='#91204D' size={32}  />
         </button>
@@ -19,14 +19,23 @@ export default function Home() {
           <FiMoon color='#91204D' size={32} />
         </button>
       </header>
-      <div className='bg-white py-5 px-4'>
-        <h2 className='text-xl font-medium text-orange'>Streaming</h2>
+      <div className='bg-white py-5 px-4 flex items-center xl:py-7'>
+        <h2 className='text-xl font-medium text-orange xl:text-3xl'>Streaming</h2>
+        <div className='w-96 hidden items-center pl-3 ml-auto bg-gray-100 rounded-2xl xl:flex'>
+          <span className='h-full'>
+            <FiSearch color='#8B8A90' size={24} />
+          </span>
+          <input className='h-full bg-transparent p-3 text-gray-500 outline-none' type='text'/>
+        </div>
+        <button className='ml-7'>
+          <FiMoon color='#91204D' size={32} />
+        </button>
       </div>
       <main className='bg-gray-100 rounded-tl-3xl py-8 px-4'>
         <section id='ultimos-trailers'>
           <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
-          <div className='grid grid-cols-card-trailers grid-rows-6 overflow-x-auto gap-4 my-6 px-4 -mx-4'>
-            <div className='row-start-1 row-end-4 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center'>
+          <div className='grid grid-cols-card-trailers grid-rows-6 overflow-x-auto gap-4 my-6 px-4 -mx-4 xl:grid-rows-2 xl:grid-cols-4'>
+            <div className='row-start-1 row-end-4 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-3'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                 <FaPlay color='#FFFFFF' size={30} />
@@ -36,7 +45,7 @@ export default function Home() {
                 <p className='text-xs text-center font-light text-white'>O Poderoso Chefão - Desfecho: A Morte de Michael Corleone | Trailer Oficial</p>
               </div>
             </div>
-            <div className='row-start-4 row-end-7 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center'>
+            <div className='row-start-4 row-end-7 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-3'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/zCHe8ckyufHVUZaoHu2DiF8evET.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                 <FaPlay color='#FFFFFF' size={30} />
@@ -46,7 +55,7 @@ export default function Home() {
                 <p className='text-xs text-center font-light text-white'>A Princesa e a Plebeia – Nova Aventura | Trailer oficial | Netflix</p>
               </div>
             </div>
-            <div className='row-start-1 row-end-3 relative rounded-2xl overflow-hidden flex items-center justify-center'>
+            <div className='row-start-1 row-end-3 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-2'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/iU955nBcsc5Zr5e31eWU2xKVqHk.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                 <FaPlay color='#FFFFFF' size={30} />
@@ -56,7 +65,7 @@ export default function Home() {
                 <p className='text-xs text-center font-light text-white'>Bárbaros | Trailer oficial | Netflix Brasil</p>
               </div>
             </div>
-            <div className='row-start-3 row-end-5 relative rounded-2xl overflow-hidden flex items-center justify-center'>
+            <div className='row-start-3 row-end-5 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-2'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/wGHiggyQ5qCZjo5Eyf5euEIs6Le.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                 <FaPlay color='#FFFFFF' size={30} />
@@ -66,7 +75,7 @@ export default function Home() {
                 <p className='text-xs text-center font-light text-white'>Professor Iglesias – Parte 2 | Trailer oficial | Netflix</p>
               </div>
             </div>
-            <div className='row-start-5 row-end-7 relative rounded-2xl overflow-hidden flex items-center justify-center'>
+            <div className='row-start-5 row-end-7 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-2 xl:row-end-3 xl:col-start-3 xl:col-end-5'>
               <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/9yKCJTOh9m3Lol2RY3kw99QPH6x.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
               <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                 <FaPlay color='#FFFFFF' size={30} />
