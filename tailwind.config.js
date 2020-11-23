@@ -24,8 +24,9 @@ module.exports = {
       black: '#2F2F2F'
     },
     extend: {
-      spacing: {
-        '108': '38rem'
+      gridTemplateColumns: {
+        'card-trailers': 'repeat(2, minmax(285px, 1fr))',
+        'card-movies': 'repeat(5, minmax(205px, 1fr))'
       }
     },
   },
