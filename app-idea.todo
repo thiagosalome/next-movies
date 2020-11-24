@@ -8,6 +8,7 @@ Requisitos Técnicos:
     ☐ Utilizar getStaticProps para Static Generation
     ☐ Utilizar getStaticPaths para Dynamic Routes
     ☐ Utilizar API routes
+    ☐ Utilizar SWR (Filme do dia)
   ☐ Utilizar TailwindCSS
     ☐ Mobile First
     ☐ Hover, Focus, & Other States (Hover, Groups-hover, Focus-within)
