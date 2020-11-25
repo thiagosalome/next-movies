@@ -5,6 +5,7 @@ import { IoMdArrowBack } from 'react-icons/io'
 // Components
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
+import CardCast from '../components/CardCast'
 
 export default function Home() {
   return (
@@ -73,25 +74,39 @@ export default function Home() {
             </div>
             <div id='imagens-de-fundo' className='p-4'>
               <h3 className='text-2xl font-medium text-black'>Imagens de Fundo</h3>
-              <div className='grid grid-cols-background-images grid-rows-background-images gap-5 mt-6 -mx-4 px-4 overflow-x-auto'>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+              <div className='grid grid-cols-background-images grid-rows-background-images gap-5 mt-6 -mx-4 px-4 overflow-x-auto xl:grid-cols-12'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-4 '>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/58PON1OrnBiX6CqEHgeWKVwrCn6.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-4 xl:col-end-8 '>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/agZoYZTHQq40H2WmuzvtnYmUCoc.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-8 xl:col-end-13'>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/dvDkq5Mcv27vpHRvF1ywFGroh03.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-6'>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/wxErJ50CAG6Y3Wtk59TpVYXB5bJ.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-6 xl:col-end-10'>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/92B6765nyQkIW8yLWt3pNcS6Cip.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
-                <figure className='overflow-hidden h-full w-full rounded-2xl'>
+                <figure className='overflow-hidden h-full w-full rounded-2xl xl:col-start-10 xl:col-end-13'>
                   <img src='https://image.tmdb.org/t/p/w533_and_h300_bestv2/dYJNSvRPu97Xc6REiTDxRvoA8JV.jpg' className='h-full w-full object-cover' alt=''/>
                 </figure>
+              </div>
+            </div>
+            <div id='os-mais-populares' className='p-4'>
+              <h3 className='text-2xl font-medium text-black'>Elenco</h3>
+              <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5'>
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/jOGFt9WUezPQFN0xxgTekA2Fyta.jpg' name='Alycia Debnam-Carey' character='Alicia Clark' episodes='76 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/iS4vwXHoPhOdwUQS7J9kplitvlh.jpg' name='Danay García' character='Luciana Galvez' episodes='61 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/mhoqQ47tvGlmJQsu2udOsXhKBFk.jpg' name='Colman Domingo' character='Victor Strand' episodes='57 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/bYIQGHeSIt4G2tLrLt61FJ2CD7h.jpg' name='Kim Dickens' character='Madison Clark' episodes='53 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/sXcn4QnEzvPFV9OiKLvPRyVr7RN.jpg' name='Frank Dillane' character='Nick Clark' episodes='53 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/kOgVo3qDJ9jXgIZJRJI3I1bm6sA.jpg' name='Rubén Blades' character='Daniel Salazar' episodes='45 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/hfZrdEkBHxYYbMoGHAaVomlgMi.jpg' name='Lennie James' character='Morgan Jones' episodes='39 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/w5Ziqypp23AMTOaAolAW7RM5pnH.jpg' name='Garret Dillahunt' character='John Dorie' episodes='39 episódios' />
+                <CardCast image='https://image.tmdb.org/t/p/w138_and_h175_face/fEZSGno4ooPgFjuGzE7ogsWEHsh.jpg' name='Maggie Grace' character='Althea Szewczyk-Przygocki' episodes='39 episódios' />
               </div>
             </div>
           </section>

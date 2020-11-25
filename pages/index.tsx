@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { FaPlay } from 'react-icons/fa'
 
-
 // Components
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
+import CardMovie from '../components/CardMovie'
 
 export default function Home() {
   return (
@@ -121,106 +121,16 @@ export default function Home() {
             <div id='os-mais-populares'>
               <h3 className='text-2xl font-medium text-black'>Os mais populares</h3>
               <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5'>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/tn8viCBxP2xdQ7SS2fww7zeoPwe.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>An Honest Liar</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: "linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);", WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>18 de abr de 2014</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/gOdYUhq6kexSzkobAvbvDiflg0l.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Atração Mortal</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: "linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);", WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>31 de mar de 1989</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/yQZCTiMWnXNTeKtnBAOmGdUT0rf.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Dead Rising: Endgame</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>20 de jun de 2016</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/2rC6JvsP6O673HSzmhmoxmn6MOb.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>O Escondido</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>30 de out de 1987</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/13ogcfzZ0vUfB7zgnYUCV83ByvC.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Uma Mulher Desejada</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>26 de jan de 1994</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/owGZCAje2VKrGGdwxM7peVwhErx.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Colheita Maldita</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>09 de mar de 1984</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/tq68HwUioABtXx03ujTK1chR6Ug.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>200 Cigarros</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>26 de fev de 1999</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/w6kJXPELCTjcGe1nSEHQgAoVZVX.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>A Colmeia</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>14 de set de 2015</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/rQ00XrDhtLZqxWMJsMiWiajfbkQ.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Dead Rising: Watchtower - O Filme</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>27 de mar de 2015</p>
-                </div>
-                <div className='bg-white rounded-xl p-4 cursor-pointer'>
-                  <figure className='overflow-hidden w-full h-60 rounded-xl'>
-                    <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/fz3RPQPquiyb4xi0isCIf6lIx7F.jpg' alt='Os Simpsons' />
-                  </figure>
-                  <h4 className='text-sm text-black text-center mt-2 leading-4'>A Qualquer Custo</h4>
-                  <div className='text-base text-center mt-1 mb-2'>
-                    <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
-                  </div>
-                  <p className='text-xs text-gray-500 text-center'>12 de ago de 2016</p>
-                </div>
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/tn8viCBxP2xdQ7SS2fww7zeoPwe.jpg' title='An Honest Liar' date='18 de abr de 2014' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/gOdYUhq6kexSzkobAvbvDiflg0l.jpg' title='Atração Mortal' date='31 de mar de 1989' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/yQZCTiMWnXNTeKtnBAOmGdUT0rf.jpg' title='Dead Rising: Endgame' date='20 de jun de 2016' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/2rC6JvsP6O673HSzmhmoxmn6MOb.jpg' title='O Escondido' date='30 de out de 1987' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/13ogcfzZ0vUfB7zgnYUCV83ByvC.jpg' title='Uma Mulher Desejada' date='26 de jan de 1994' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/owGZCAje2VKrGGdwxM7peVwhErx.jpg' title='Colheita Maldita' date='09 de mar de 1984' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/tq68HwUioABtXx03ujTK1chR6Ug.jpg' title='200 Cigarros' date='26 de fev de 1999' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/w6kJXPELCTjcGe1nSEHQgAoVZVX.jpg' title='A Colmeia' date='14 de set de 2015' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/rQ00XrDhtLZqxWMJsMiWiajfbkQ.jpg' title='Dead Rising: Watchtower - O Filme' date='27 de mar de 2015' />
+                <CardMovie image='https://image.tmdb.org/t/p/w220_and_h330_face/fz3RPQPquiyb4xi0isCIf6lIx7F.jpg' title='A Qualquer Custo' date='12 de ago de 2016' />
               </div>
             </div>
           </section>

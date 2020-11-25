@@ -32,12 +32,12 @@ module.exports = {
       gridTemplateColumns: {
         'card-trailers': 'repeat(2, minmax(285px, 1fr))',
         'card-movies': 'repeat(5, minmax(205px, 1fr))',
-        'background-images': '266px 370px 430px'
+        'background-images': '265px 370px 430px' 
       },
       gridTemplateRows: {
         'card-trailers': 'repeat(6, minmax(128.5px, 1fr))',
         'xl:card-trailers': 'repeat(2, minmax(180px, 1fr))',
-        'background-images': 'repeat(2, minmax(200px, 1fr))'
+        'background-images': 'repeat(2, minmax(0, 200px))'
       }
     },
   },
