@@ -25,14 +25,24 @@ module.exports = {
       black: '#2F2F2F'
     },
     extend: {
+      height: {
+        'dashboard-content': 'calc(100vh - 131px)',
+        'xl:dashboard-content': 'calc(100vh - 100px)'
+      },
       gridTemplateColumns: {
         'card-trailers': 'repeat(2, minmax(285px, 1fr))',
         'card-movies': 'repeat(5, minmax(205px, 1fr))'
+      },
+      gridTemplateRows: {
+        'card-trailers': 'repeat(6, minmax(128.5px, 1fr))',
+        'xl:card-trailers': 'repeat(2, minmax(180px, 1fr))',
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      scale: ['group-hover']
+    },
   },
   plugins: [],
 }

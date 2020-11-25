@@ -66,12 +66,12 @@ export default function Home() {
               <FiMoon color='#91204D' size={32} />
             </button>
           </header>
-          <section className='bg-gray-100 rounded-tl-3xl py-8 px-4 xl:p-9'>
+          <section className='bg-gray-100 rounded-tl-3xl h-dashboard-content overflow-y-auto py-8 px-4 xl:p-9 xl:h-xl:dashboard-content'>
             <div id='ultimos-trailers'>
               <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
-              <div className='grid grid-cols-card-trailers grid-rows-6 overflow-x-auto gap-4 my-6 px-4 -mx-4 xl:grid-rows-2 xl:grid-cols-4 xl:-mx-0 xl:px-0'>
-                <div className='row-start-1 row-end-4 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-3'>
-                  <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
+              <div className='grid grid-cols-card-trailers grid-rows-card-trailers overflow-x-auto gap-4 my-6 px-4 -mx-4 xl:grid-cols-4 xl:grid-rows-xl:card-trailers xl:-mx-0 xl:px-0'>
+                <div className='row-start-1 row-end-4 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-3'>
+                  <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
                   <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                     <FaPlay color='#FFFFFF' size={30} />
                   </div>
@@ -80,8 +80,8 @@ export default function Home() {
                     <p className='text-xs text-center font-light text-white'>O Poderoso Chefão - Desfecho: A Morte de Michael Corleone | Trailer Oficial</p>
                   </div>
                 </div>
-                <div className='row-start-4 row-end-7 h-96 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-3'>
-                  <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/zCHe8ckyufHVUZaoHu2DiF8evET.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
+                <div className='row-start-4 row-end-7 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-3'>
+                  <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/zCHe8ckyufHVUZaoHu2DiF8evET.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
                   <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
                     <FaPlay color='#FFFFFF' size={30} />
                   </div>
@@ -90,30 +90,30 @@ export default function Home() {
                     <p className='text-xs text-center font-light text-white'>A Princesa e a Plebeia – Nova Aventura | Trailer oficial | Netflix</p>
                   </div>
                 </div>
-                <div className='row-start-1 row-end-3 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-2'>
-                  <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/iU955nBcsc5Zr5e31eWU2xKVqHk.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
-                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
-                    <FaPlay color='#FFFFFF' size={30} />
+                <div className='row-start-1 row-end-3 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-2'>
+                  <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/iU955nBcsc5Zr5e31eWU2xKVqHk.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
+                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-11 w-11'>
+                    <FaPlay color='#FFFFFF' size={20} />
                   </div>
                   <div className='absolute bottom-0 left-0 right-0 py-4 px-5 bg-black bg-opacity-40'>
                     <h4 className='text-sm text-center font-medium text-white mb-1'>Bárbaros</h4>
                     <p className='text-xs text-center font-light text-white'>Bárbaros | Trailer oficial | Netflix Brasil</p>
                   </div>
                 </div>
-                <div className='row-start-3 row-end-5 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-1 xl:row-end-2'>
-                  <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/wGHiggyQ5qCZjo5Eyf5euEIs6Le.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
-                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
-                    <FaPlay color='#FFFFFF' size={30} />
+                <div className='row-start-3 row-end-5 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-2'>
+                  <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/wGHiggyQ5qCZjo5Eyf5euEIs6Le.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
+                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-11 w-11'>
+                    <FaPlay color='#FFFFFF' size={20} />
                   </div>
                   <div className='absolute bottom-0 left-0 right-0 py-4 px-5 bg-black bg-opacity-40'>
                     <h4 className='text-sm text-center font-medium text-white mb-1'>Professor Iglesias</h4>
                     <p className='text-xs text-center font-light text-white'>Professor Iglesias – Parte 2 | Trailer oficial | Netflix</p>
                   </div>
                 </div>
-                <div className='row-start-5 row-end-7 relative rounded-2xl overflow-hidden flex items-center justify-center xl:row-start-2 xl:row-end-3 xl:col-start-3 xl:col-end-5'>
-                  <img className='absolute object-cover w-full h-full' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/9yKCJTOh9m3Lol2RY3kw99QPH6x.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
-                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16'>
-                    <FaPlay color='#FFFFFF' size={30} />
+                <div className='row-start-5 row-end-7 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-2 xl:row-end-3 xl:col-start-3 xl:col-end-5'>
+                  <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/9yKCJTOh9m3Lol2RY3kw99QPH6x.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
+                  <div className='relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-11 w-11'>
+                    <FaPlay color='#FFFFFF' size={20} />
                   </div>
                   <div className='absolute bottom-0 left-0 right-0 py-4 px-5 bg-black bg-opacity-40'>
                     <h4 className='text-sm text-center font-medium text-white mb-1'>His Dark Materials - Fronteiras do Universo</h4>
@@ -170,101 +170,101 @@ export default function Home() {
             <div id='os-mais-populares'>
               <h3 className='text-xl font-medium text-black'>Os mais populares</h3>
               <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5'>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/tn8viCBxP2xdQ7SS2fww7zeoPwe.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>An Honest Liar</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>An Honest Liar</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: "linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);", WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>18 de abr de 2014</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/gOdYUhq6kexSzkobAvbvDiflg0l.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>Atração Mortal</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Atração Mortal</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: "linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);", WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>31 de mar de 1989</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/yQZCTiMWnXNTeKtnBAOmGdUT0rf.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>Dead Rising: Endgame</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Dead Rising: Endgame</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>20 de jun de 2016</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/2rC6JvsP6O673HSzmhmoxmn6MOb.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>O Escondido</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>O Escondido</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>30 de out de 1987</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/13ogcfzZ0vUfB7zgnYUCV83ByvC.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>Uma Mulher Desejada</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Uma Mulher Desejada</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>26 de jan de 1994</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/owGZCAje2VKrGGdwxM7peVwhErx.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>Colheita Maldita</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Colheita Maldita</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>09 de mar de 1984</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/tq68HwUioABtXx03ujTK1chR6Ug.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>200 Cigarros</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>200 Cigarros</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>26 de fev de 1999</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/w6kJXPELCTjcGe1nSEHQgAoVZVX.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>A Colmeia</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>A Colmeia</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>14 de set de 2015</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/rQ00XrDhtLZqxWMJsMiWiajfbkQ.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>Dead Rising: Watchtower - O Filme</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>Dead Rising: Watchtower - O Filme</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
                   <p className='text-xs text-gray-500 text-center'>27 de mar de 2015</p>
                 </div>
-                <div className='bg-white rounded-xl p-4'>
+                <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
                     <img className='w-full h-full object-cover' src='https://image.tmdb.org/t/p/w220_and_h330_face/fz3RPQPquiyb4xi0isCIf6lIx7F.jpg' alt='Os Simpsons' />
                   </figure>
-                  <h4 className='text-base text-black text-center mt-2'>A Qualquer Custo</h4>
+                  <h4 className='text-sm text-black text-center mt-2 leading-4'>A Qualquer Custo</h4>
                   <div className='text-base text-center mt-1 mb-2'>
                     <span className='bg-clip-text' style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
                   </div>
