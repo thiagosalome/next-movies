@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import { FiMenu, FiMoon, FiSearch } from 'react-icons/fi'
-import { FaPlay, FaHandPointUp } from 'react-icons/fa'
-import { MdViewStream } from 'react-icons/md'
-import { RiComputerFill, RiMovie2Fill } from 'react-icons/ri'
+import { FaPlay } from 'react-icons/fa'
+
+
+// Components
+import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 
 export default function Home() {
   return (
@@ -13,59 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className='xl:flex'>
-        <aside className='w-64 flex-shrink-0 py-8 px-5 bg-white hidden xl:block'>
-          <img className='w-36' src='/images/logo.png' alt='Next Movies' title='Next Movies' />
-          <nav className='mt-16'>
-            <ul>
-              <li className='mb-4'>
-                <a className='flex items-center p-2 w-full rounded-lg transition-all group hover:bg-wine hover:bg-opacity-20' href=''>
-                  <MdViewStream className='fill-current text-gray-500 group-hover:text-wine' size={24} />
-                  <span className='text-base text-gray-500 ml-3 group-hover:text-wine'>Streaming</span>
-                </a>
-              </li>
-              <li className='mb-4'>
-                <a className='flex items-center p-2 w-full rounded-lg transition-all group hover:bg-wine hover:bg-opacity-20' href=''>
-                  <RiComputerFill className='fill-current text-gray-500 group-hover:text-wine' size={24} />
-                  <span className='text-base text-gray-500 ml-3 group-hover:text-wine'>Na TV</span>
-                </a>
-              </li>
-              <li className='mb-4'>
-                <a className='flex items-center p-2 w-full rounded-lg transition-all group hover:bg-wine hover:bg-opacity-20' href=''>
-                  <FaHandPointUp className='fill-current text-gray-500 group-hover:text-wine' size={24} />
-                  <span className='text-base text-gray-500 ml-3 group-hover:text-wine'>Para alugar</span>
-                </a>
-              </li>
-              <li className='mb-4'>
-                <a className='flex items-center p-2 w-full rounded-lg transition-all group hover:bg-wine hover:bg-opacity-20' href=''>
-                  <RiMovie2Fill className='fill-current text-gray-500 group-hover:text-wine' size={24} />
-                  <span className='text-base text-gray-500 ml-3 group-hover:text-wine'>Nos cinemas</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </aside>        
+        <Sidebar />
         <div className='flex-grow'>
-          <header className='bg-white py-3 px-4 flex items-center xl:hidden'>
-            <button>
-              <FiMenu color='#91204D' size={32}  />
-            </button>
-            <img className='ml-3' src='/images/logo.png' alt='Next Movies' title='Next Movies' />
-            <button className='ml-auto'>
-              <FiMoon color='#91204D' size={32} />
-            </button>
-          </header>
-          <header className='bg-white py-5 px-4 flex items-center xl:py-7'>
-            <h2 className='text-xl font-medium text-orange xl:text-3xl'>Streaming</h2>
-            <div className='w-96 hidden items-center pl-3 ml-auto bg-gray-100 rounded-2xl xl:flex'>
-              <span className='h-full'>
-                <FiSearch color='#8B8A90' size={24} />
-              </span>
-              <input className='h-full bg-transparent p-3 text-gray-500 outline-none' type='text'/>
-            </div>
-            <button className='ml-7 hidden xl:block'>
-              <FiMoon color='#91204D' size={32} />
-            </button>
-          </header>
+          <Header />
           <section className='bg-gray-100 rounded-tl-3xl h-dashboard-content overflow-y-auto py-8 px-4 xl:p-9 xl:h-xl:dashboard-content'>
             <div id='ultimos-trailers'>
               <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
