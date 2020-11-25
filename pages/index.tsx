@@ -19,7 +19,7 @@ export default function Home() {
           <Header />
           <section className='bg-gray-100 rounded-tl-3xl h-dashboard-content overflow-y-auto py-8 px-4 xl:p-9 xl:h-xl:dashboard-content'>
             <div id='ultimos-trailers'>
-              <h3 className='text-xl font-medium text-black'>Últimos Trailers</h3>
+              <h3 className='text-2xl font-medium text-black'>Últimos Trailers</h3>
               <div className='grid grid-cols-card-trailers grid-rows-card-trailers overflow-x-auto gap-4 my-6 px-4 -mx-4 xl:grid-cols-4 xl:grid-rows-xl:card-trailers xl:-mx-0 xl:px-0'>
                 <div className='row-start-1 row-end-4 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-3'>
                   <img className='absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110' src='https://image.tmdb.org/t/p/w710_and_h400_multi_faces/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg' alt='O Poderoso Chefão: Parte III' title='O Poderoso Chefão: Parte III'/>
@@ -74,7 +74,7 @@ export default function Home() {
               </div>
             </div>
             <div id='empresas'>
-              <h3 className='text-xl font-medium text-black'>Empresas</h3>
+              <h3 className='text-2xl font-medium text-black'>Empresas</h3>
               <div className='my-6 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-5'>
                 <div className='bg-white p-3 rounded-2xl flex items-center mb-5 lg:inline-flex lg:mb-0'>
                   <figure className='overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl'>
@@ -119,7 +119,7 @@ export default function Home() {
               </div>
             </div>
             <div id='os-mais-populares'>
-              <h3 className='text-xl font-medium text-black'>Os mais populares</h3>
+              <h3 className='text-2xl font-medium text-black'>Os mais populares</h3>
               <div className='grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5'>
                 <div className='bg-white rounded-xl p-4 cursor-pointer'>
                   <figure className='overflow-hidden w-full h-60 rounded-xl'>
