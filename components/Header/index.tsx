@@ -4,7 +4,7 @@ import { FiMenu, FiMoon, FiSearch } from 'react-icons/fi'
 const Header: React.FC = () => {
   return (
     <>
-      <header className='bg-white py-3 px-4 flex items-center xl:hidden'>
+      <header className='bg-white py-3 px-4 flex items-center dark:bg-black xl:hidden'>
         <button>
           <FiMenu color='#91204D' size={32}  />
         </button>
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
           <FiMoon color='#91204D' size={32} />
         </button>
       </header>
-      <header className='bg-white py-5 px-4 flex items-center xl:py-7'>
+      <header className='bg-white py-5 px-4 flex items-center dark:bg-black xl:py-7'>
         <h2 className='text-xl font-medium text-orange xl:text-3xl'>Streaming</h2>
         <div className='w-96 hidden items-center pl-3 ml-auto bg-gray-100 rounded-2xl xl:flex'>
           <span className='h-full'>
