@@ -19,9 +19,9 @@ const Header: React.FC = () => {
         <h2 className='text-xl font-medium text-orange xl:text-3xl'>Streaming</h2>
         <div className='w-96 hidden items-center pl-3 ml-auto bg-gray-100 rounded-2xl xl:flex'>
           <span className='h-full'>
-            <FiSearch color='#8B8A90' size={24} />
+            <FiSearch className='stroke-current text-gray-500' size={24} />
           </span>
-          <input className='h-full bg-transparent p-3 text-gray-500 outline-none' type='text'/>
+          <input className='h-full w-full bg-transparent p-3 text-gray-500 outline-none' type='text'/>
         </div>
         <button className='ml-7 hidden xl:block'>
           {/* <FiMoon color='#91204D' size={32} /> */}

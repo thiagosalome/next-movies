@@ -10,10 +10,10 @@ Requisitos Técnicos:
     ☐ Utilizar API routes
     ☐ Utilizar SWR (Filme do dia)
   ☐ Utilizar TailwindCSS
-    ☐ Mobile First
-    ☐ Hover, Focus, & Other States (Hover, Groups-hover, Focus-within)
-    ☐ Dark Mode
+    ✔ Mobile First @done (11/29/2020, 4:41:15 PM)
+    ☐ Hover, Focus, & Other States (Hover, Groups-hover)
+    ✔ Dark Mode @done (11/29/2020, 4:41:41 PM)
     ☐ Adding Base Styles (Fonts)
-    ☐ Extracting Components (Componentes repetidos)
+    ✔ Extracting Components (Componentes repetidos) @done (11/29/2020, 4:51:11 PM)
     ☐ Adding New Utilities
     ☐ Functions & Directives (@tailwind, @apply, @layer, @variants)
