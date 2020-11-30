@@ -3,7 +3,7 @@ Requisitos Técnicos:
     ☐ Utilizar tag Link
     ☐ Utilizar diretório public para imagens
     ☐ Utilizar tag Head
-    ☐ Utilizar Layout Component
+    ✔ Utilizar Layout Component @done (11/30/2020, 7:37:36 AM)
     ☐ Utilizar Global Styles
     ☐ Utilizar getStaticProps para Static Generation
     ☐ Utilizar getStaticPaths para Dynamic Routes
