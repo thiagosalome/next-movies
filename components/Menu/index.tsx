@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react'
 import Link from 'next/link'
-
 
 type Category = {
   name: string;
-  icon: JSX.Element
+  icon: ReactNode
 }
 
 type MenuProps = {
@@ -17,14 +16,12 @@ type MenuProps = {
   activeCategory: string;
 }
 
-const Menu = ({ categories, activeCategory }: MenuProps) => {
-
-  return (
-    <nav className='mt-16'>
+const Menu = ({ categories, activeCategory }: MenuProps) => (
+  <nav className="mt-16">
     <ul>
       {
         Object.keys(categories).map((category) => (
-          <li key={category} className='mb-4'>
+          <li key={category} className="mb-4">
             <Link href={`/${category}`}>
               <a className={`flex items-center p-2 w-full rounded-lg transition-all group hover:bg-wine hover:bg-opacity-20 dark:hover:bg-orange dark:hover:bg-opacity-20 ${category === activeCategory ? 'bg-wine bg-opacity-20 dark:bg-orange dark:bg-opacity-20' : ''}`}>
                 {categories[category].icon}
@@ -36,7 +33,6 @@ const Menu = ({ categories, activeCategory }: MenuProps) => {
       }
     </ul>
   </nav>
-  )
-}
+)
 
-export default Menu;
+export default Menu

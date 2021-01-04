@@ -1,5 +1,5 @@
+import React from 'react'
 import { AppProps } from 'next/app'
-import { useLayoutEffect } from 'react'
 
 // Contexts
 import ThemeContext from '../contexts/theme'
@@ -10,7 +10,7 @@ import useLocalStorage from '../hooks/useLocalStorage'
 // Styles
 import '../styles/tailwind.css'
 
-function App({ Component, pageProps }: AppProps) {
+function App ({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useLocalStorage('theme', 'light')
 
   return (
