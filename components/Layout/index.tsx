@@ -18,21 +18,21 @@ type LayoutProps = {
 const Layout = ({ activeCategory, children }: LayoutProps) => {
   const { theme } = useContext(ThemeContext)
   const categories = {
-    'popular-streaming': {
+    'streaming': {
       name: 'Streaming',
-      icon: <MdViewStream className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'popular-streaming' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
+      icon: <MdViewStream className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'streaming' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
     },
-    'popular-na-tv': {
+    'na-tv': {
       name: 'Na TV',
-      icon: <RiComputerFill className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'popular-na-tv' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
+      icon: <RiComputerFill className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'na-tv' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
     },
-    'popular-para-alugar': {
+    'para-alugar': {
       name: 'Para Alugar',
-      icon: <FaHandPointUp className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'popular-para-alugar' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
+      icon: <FaHandPointUp className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'para-alugar' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
     },
-    'popular-nos-cinemas': {
+    'nos-cinemas': {
       name: 'Nos Cinemas',
-      icon: <RiMovie2Fill className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'popular-nos-cinemas' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
+      icon: <RiMovie2Fill className={`fill-current group-hover:text-wine dark:group-hover:text-orange ${'nos-cinemas' === activeCategory ? 'text-wine dark:text-orange' : 'text-gray-500 dark:text-white'}`} size={24} />
     }
   }
 

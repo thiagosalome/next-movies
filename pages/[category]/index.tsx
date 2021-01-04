@@ -6,13 +6,15 @@ import { FaPlay } from 'react-icons/fa'
 // Components
 import Layout from 'components/Layout'
 import CardMovie from 'components/CardMovie'
+
+// Lib
 import { getList, getLists } from 'lib/lists'
 
 export default function Home(props) {
   const { populars, trailers } = props
-
+  const category = populars.name.replace('popular-', '')
   return (
-    <Layout activeCategory={populars.name}>
+    <Layout activeCategory={category}>
       <Head>
         <title>Next Movies</title>
         <link rel="icon" href="/favicon.png" />
@@ -124,7 +126,7 @@ export default function Home(props) {
             {
               populars.items.map(movie => {
                 const resultDate = movie.first_air_date ? format(new Date(movie.first_air_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR }) : '-'
-                return <CardMovie key={movie.id} image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={movie.name || movie.title} date={resultDate} rate={movie.vote_average} />
+                return <CardMovie link={`${category}/${movie.id}`} key={movie.id} image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={movie.name || movie.title} date={resultDate} rate={movie.vote_average} />
               })
             }
           </div>
@@ -137,10 +139,10 @@ export default function Home(props) {
 // Generate the path for each posts
 export async function getStaticPaths() {
   const lists = await getLists()
-  const popularMovies = lists.results.filter((itemList) => itemList.name.includes('popular'))
-  const paths = popularMovies.map((itemMovie) => ({
+  const popularList = lists.results.filter((itemList) => itemList.name.includes('popular'))
+  const paths = popularList.map((listItem) => ({
     params: {
-      category: itemMovie.name.replace('popular-', ''),
+      category: listItem.name.replace('popular-', ''),
     }
   }))
   return {
@@ -150,13 +152,11 @@ export async function getStaticPaths() {
   
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ params: { category } }) {
   const lists = await getLists()
-  const { category } = context.params
   const [ trailers, populars ] = lists.results.filter(itemList => itemList.name.includes(category))
   const trailerList = await getList(trailers.id)
   const popularsList = await getList(populars.id)
-
   return {
     props: {
       trailers: trailerList,

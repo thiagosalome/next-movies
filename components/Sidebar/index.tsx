@@ -10,10 +10,10 @@ type Category = {
 
 type SidebarProps = {
   categories: {
-    'popular-streaming': Category;
-    'popular-na-tv': Category;
-    'popular-para-alugar': Category;
-    'popular-nos-cinemas': Category;
+    'streaming': Category;
+    'na-tv': Category;
+    'para-alugar': Category;
+    'nos-cinemas': Category;
   },
   activeCategory: string;
 }
