@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
-import React from 'react'
+import React, { MouseEvent, useState } from 'react'
 import Head from 'next/head'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { useRouter } from 'next/router'
@@ -10,7 +11,7 @@ import { IoMdArrowBack } from 'react-icons/io'
 // Components
 import Layout from 'components/Layout'
 import CardCast from 'components/CardCast'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import Modal from 'components/Modal'
 
 // Lib
 import { getMedia } from 'lib/medias'
@@ -31,11 +32,47 @@ type MovieProps = {
 export default function Movie (props: MovieProps) {
   const { media, language } = props
   const { isFallback, back } = useRouter()
+  const [showModal, setShowModal] = useState({
+    visible: false,
+    content: null
+  })
   const fillYellow = media.vote_average * 10
   const fillGray = (10 - media.vote_average) * 10
 
   if (isFallback) {
     return <p>Carregando...</p>
+  }
+
+  const modal = (
+    <Modal visible={showModal.visible} setVisible={(visible: boolean) => setShowModal({ ...showModal, visible })}>
+      {showModal.content}
+    </Modal>
+  )
+
+  function handleContentModal (source: string, type: string) {
+    let content = <></>
+    switch (type) {
+      case 'image':
+        content = <img src={source} />
+        break
+      case 'video':
+        content = (
+          <iframe
+            width="560"
+            height="315"
+            src={source}
+            frameBorder={0}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )
+        break
+    }
+
+    setShowModal({
+      visible: true,
+      content
+    })
   }
 
   function handleClickBack () {
@@ -44,6 +81,7 @@ export default function Movie (props: MovieProps) {
 
   return (
     <Layout activeCategory="streaming">
+      {modal}
       <Head>
         <title>
           Next Movies - {media.title}
@@ -72,14 +110,18 @@ export default function Movie (props: MovieProps) {
             </div>
           </div>
         </div>
-        <div id="ver-trailer" className="px-4 py-5 xl:px-9 xl:mt-36">
-          <button className="flex items-center ">
-            <div className="bg-orange rounded-full flex items-center justify-center h-6 w-6">
-              <FaPlay color="#FFFFFF" size={10} />
+        {
+          media.videos.results.length > 0 && (
+            <div id="ver-trailer" className="px-4 py-5 xl:px-9 xl:mt-36">
+              <button onClick={() => handleContentModal(`https://www.youtube.com/embed/${media.videos.results[0].key}`, 'video')} className="focus:outline-none flex items-center ">
+                <div className="bg-orange rounded-full flex items-center justify-center h-6 w-6">
+                  <FaPlay color="#FFFFFF" size={10} />
+                </div>
+                    <p className="text-lg text-orange ml-3">Ver trailer</p>
+              </button>
             </div>
-            <p className="text-lg text-orange ml-3">Ver trailer</p>
-          </button>
-        </div>
+          )
+        }
         <div id="sinopse" className="px-4 pb-4 xl:p-9 xl:ml-64 xl:-mt-56">
           <h3 className="text-2xl font-medium text-black dark:text-white">Sinopse</h3>
           <p className="text-lg text-black leading-5 mt-2 mb-6 dark:text-white">
@@ -113,43 +155,43 @@ export default function Movie (props: MovieProps) {
           <div className="grid grid-cols-background-images grid-rows-background-images gap-5 mt-6 -mx-4 px-4 overflow-x-auto xl:grid-cols-12">
             {
               media.images.backdrops[0] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-4 ">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-4">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[1] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-4 xl:col-end-8 ">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-4 xl:col-end-8">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[2] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-8 xl:col-end-13">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-8 xl:col-end-13">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[3] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-6">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-6">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[4] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-6 xl:col-end-10">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-6 xl:col-end-10">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[5] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-10 xl:col-end-13">
-                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-10 xl:col-end-13">
+                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
