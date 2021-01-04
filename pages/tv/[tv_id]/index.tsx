@@ -60,6 +60,7 @@ export default function Tv (props: TvProps) {
             <div className="bg-black bg-opacity-30 p-3 rounded-2xl xl:ml-6">
               <span className="text-sm text-white">{format(parseISO(media.last_air_date), 'yyyy')}</span>
               <h2 className="text-xl text-white font-bold my-1">{media.name}</h2>
+              {media.tagline && <p className='text-sm text-white'>&quot;{media.tagline}&quot;</p>}
               <div className="text-base my-2 xl:text-2xl">
                 <span className="bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, rgb(252, 238, 33) ${fillYellow}%, rgb(197, 200, 212) ${fillGray}%)`, WebkitTextFillColor: 'transparent' }}>★★★★★</span>
               </div>
@@ -86,27 +87,27 @@ export default function Tv (props: TvProps) {
           <div className="grid grid-cols-2 grid-rows-3 gap-x-9 gap-y-5 xl:grid-cols-5 xl:grid-rows-1">
             <div>
               <h4 className="text-base font-medium text-black dark:text-white">Em produção</h4>
-              <p className="text-lg text-black dark:text-white">{media.in_production ? 'Sim' : 'Não'}</p>
+              <p className="text-sm text-black dark:text-white">{media.in_production ? 'Sim' : 'Não'}</p>
             </div>
             {
               media.networks[0] && (
                 <div>
                   <h4 className="text-base font-medium text-black dark:text-white">Emissora</h4>
-                  <p className="text-lg text-black dark:text-white">{media.networks[0].name}</p>
+                  <p className="text-sm text-black dark:text-white">{media.networks[0].name}</p>
                 </div>
               )
             }
             <div>
               <h4 className="text-base font-medium text-black dark:text-white">Temporadas</h4>
-              <p className="text-lg text-black dark:text-white">{media.number_of_seasons} temporadas</p>
+              <p className="text-sm text-black dark:text-white">{media.number_of_seasons} temporadas</p>
             </div>
             <div>
               <h4 className="text-base font-medium text-black dark:text-white">Idioma Original</h4>
-              <p className="text-lg text-black dark:text-white">{language.name}</p>
+              <p className="text-sm text-black dark:text-white">{language.name}</p>
             </div>
             <div>
               <h4 className="text-base font-medium text-black dark:text-white">Episódios</h4>
-              <p className="text-lg text-black dark:text-white">{media.number_of_episodes} episódios</p>
+              <p className="text-sm text-black dark:text-white">{media.number_of_episodes} episódios</p>
             </div>
           </div>
         </div>
