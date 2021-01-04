@@ -15,13 +15,13 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getMedia } from 'lib/lists'
 
 // Types
-import Media from 'types/Media'
+import MediaMovie from 'types/MediaMovie'
 
-type HomeProps = {
-  media: Media
+type MovieProps = {
+  media: MediaMovie
 }
 
-export default function Home (props: HomeProps) {
+export default function Movie (props: MovieProps) {
   const { media } = props
   const { isFallback, back } = useRouter()
 
@@ -37,24 +37,23 @@ export default function Home (props: HomeProps) {
     <Layout activeCategory="streaming">
       <Head>
         <title>
-          Next Movies -
-          {media.name}
+          Next Movies - {media.title}
         </title>
         <link rel="icon" href="/favicon.png" />
       </Head>
       <section className="bg-gray-100 rounded-tl-3xl h-dashboard-content overflow-y-auto dark:bg-gray-800 xl:h-xl:dashboard-content">
         <div id="banner" className="relative px-4 py-5 xl:px-9">
           {/* <img src='https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/58PON1OrnBiX6CqEHgeWKVwrCn6.jpg' className='absolute top-0 left-0 h-full w-full object-cover' alt='Fear the Walking Dead' title='Fear the Walking Dead' /> */}
-          <img src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`} className="absolute top-0 left-0 h-full w-full object-cover" alt={media.name} title={media.name} />
+          <img src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`} className="absolute top-0 left-0 h-full w-full object-cover" alt={media.title} title={media.title} />
           <button onClick={handleClickBack} className="absolute focus:outline-none left-4 top-6 xl:left-8"><IoMdArrowBack color="#FFFFFF" size={35} /></button>
-          <div className="relative mt-16 xl:flex xl:items-end xl:mt-48">
+          <div className="relative mt-16 xl:flex xl:items-start xl:mt-48">
             <figure className="w-32 h-44 mb-4 overflow-hidden rounded-xl xl:w-56 xl:h-80 xl:w xl:-mb-44">
               {/* <img src='https://image.tmdb.org/t/p/w300_and_h450_bestv2/tbgPaIEZa9BuKKESdyapOn0CZh6.jpg' className='h-full w-full object-cover' alt='Fear the Walking Dead' title='Fear the Walking Dead' /> */}
               <img src={`https://image.tmdb.org/t/p/w500/${media.poster_path}`} className="h-full w-full object-cover" alt="Fear the Walking Dead" title="Fear the Walking Dead" />
             </figure>
-            <div className="xl:ml-9">
-              <span className="text-sm text-white">{format(parseISO(media.last_air_date), 'yyyy')}</span>
-              <h2 className="text-xl text-white font-bold my-1">{media.name}</h2>
+            <div className="bg-black bg-opacity-30 p-3 rounded-2xl xl:ml-6">
+              <span className="text-sm text-white">{format(parseISO(media.release_date), 'yyyy')}</span>
+              <h2 className="text-xl text-white font-bold my-1">{media.title}</h2>
               {/* <p className='text-sm text-white'>“Toda decisão é vida ou morte.”</p> */}
               <div className="text-base my-2 xl:text-2xl">
                 <span className="bg-clip-text" style={{ backgroundImage: 'linear-gradient(90deg, rgb(252, 238, 33) 90%, rgb(197, 200, 212) 90%);', WebkitTextFillColor: 'transparent' }}>★★★★★</span>
@@ -105,24 +104,48 @@ export default function Home (props: HomeProps) {
         <div id="imagens-de-fundo" className="p-4 xl:px-9">
           <h3 className="text-2xl font-medium text-black dark:text-white">Imagens de Fundo</h3>
           <div className="grid grid-cols-background-images grid-rows-background-images gap-5 mt-6 -mx-4 px-4 overflow-x-auto xl:grid-cols-12">
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-4 ">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-4 xl:col-end-8 ">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-8 xl:col-end-13">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-6">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-6 xl:col-end-10">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
-            <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-10 xl:col-end-13">
-              <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
-            </figure>
+            {
+              media.images.backdrops[0] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-4 ">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
+            {
+              media.images.backdrops[1] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-4 xl:col-end-8 ">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
+            {
+              media.images.backdrops[2] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-8 xl:col-end-13">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
+            {
+              media.images.backdrops[3] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-1 xl:col-end-6">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
+            {
+              media.images.backdrops[4] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-6 xl:col-end-10">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
+            {
+              media.images.backdrops[5] && (
+                <figure className="overflow-hidden h-full w-full rounded-2xl xl:col-start-10 xl:col-end-13">
+                  <img src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
+                </figure>
+              )
+            }
           </div>
         </div>
         <div id="os-mais-populares" className="p-4 xl:px-9">
@@ -147,22 +170,14 @@ export default function Home (props: HomeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const lists = await getLists()
-  // const popularList = lists.results.filter((itemList) => itemList.name.includes('popular'))
-  // const listIds = popularList.map((listItem) => listItem.id)
-  // console.log('listIds', listIds)
-
-  // Pegar o category (streaming)
-  // Pegar o id (87739)
-  // Pegar a media (tv)
   return {
     paths: [],
     fallback: true
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
-  const media = await getMedia('tv', id)
+export const getStaticProps: GetStaticProps = async ({ params: { movie_id } }) => {
+  const media = await getMedia('movie', movie_id)
   return {
     props: {
       media

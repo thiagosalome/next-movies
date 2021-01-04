@@ -5,7 +5,7 @@ export default function Home () {
   const router = useRouter()
 
   useEffect(() => {
-    router.push('/streaming')
+    router.push('category/streaming')
   }, [])
 
   return (

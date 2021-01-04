@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-type Media = {
-  backdrop_path: string,
+type MediaTv = {
+  backdrop_path: string | null,
   created_by: {
     id: number,
     credit_id: string,
@@ -14,7 +14,8 @@ type Media = {
     id: number,
     name: string
   }[],
-  homepage: number,
+  homepage: string,
+  id: number;
   in_production: boolean,
   languages: string[],
   last_air_date: string,
@@ -26,7 +27,7 @@ type Media = {
     overview: string;
     production_code: string;
     season_number: number,
-    still_path: string,
+    still_path: string | null,
     vote_average: number,
     vote_count: number
   },
@@ -35,7 +36,7 @@ type Media = {
   networks: {
     name: string,
     id: number,
-    logo_path: string,
+    logo_path: string | null,
     origin_country: string
   }[]
   number_of_episodes: number,
@@ -45,10 +46,10 @@ type Media = {
   original_name: string,
   overview: string,
   popularity: number,
-  poster_path: string,
+  poster_path: string | null,
   production_companies: {
     id: number,
-    logo_path: null,
+    logo_path: string | null,
     name: string;
     origin_country: string
   }[],
@@ -63,12 +64,12 @@ type Media = {
     name: string,
     overview: string,
     poster_path: string,
-    season_number: number
+    season_number: number,
   }[],
   spoken_languages: {
     english_name: string,
     iso_639_1: string,
-    name: string
+    name: string,
   }[],
   status: string,
   tagline: string,
@@ -79,50 +80,50 @@ type Media = {
     backdrops: {
       aspect_ratio: number,
       file_path: string,
-      height: number
-      iso_639_1: null
-      vote_average: number
-      vote_count: number
-      width: number
+      height: number,
+      iso_639_1: string | null,
+      vote_average: number,
+      vote_count: number,
+      width: number,
     }[],
     posters: {
       aspect_ratio: number,
       file_path: string,
-      height: number
-      iso_639_1: null
-      vote_average: number
-      vote_count: number
-      width: number
+      height: number,
+      iso_639_1: string | null,
+      vote_average: number,
+      vote_count: number,
+      width: number,
     }[],
   },
   credits: {
     cast: {
       adult: boolean,
-      character: string,
-      credit_id: string,
-      gender: number,
+      gender: number | null,
       id: number,
       known_for_department: string,
       name: string,
-      order: number,
       original_name: string,
       popularity: number,
-      profile_path: string,
+      profile_path: string | null,
+      character: string,
+      credit_id: string,
+      order: number,
     }[],
     crew: {
       adult: boolean,
-      credit_id: string,
-      department: string,
-      gender: number,
+      gender: number | null,
       id: number,
-      job: string,
       known_for_department: string,
       name: string,
       original_name: string,
       popularity: number,
-      profile_path: string,
+      profile_path: string | null,
+      credit_id: string,
+      department: string,
+      job: string,
     }[]
   }
 }
 
-export default Media
+export default MediaTv

@@ -12,44 +12,48 @@ import CardMovie from 'components/CardMovie'
 // Lib
 import { getList, getLists } from 'lib/lists'
 
+type MediaMovie = {
+  adult: boolean,
+  backdrop_path: string;
+  genre_ids: number[],
+  id: number,
+  media_type: string,
+  original_language: string,
+  original_title: string,
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  release_date: string,
+  title: string,
+  video: boolean,
+  vote_average: number,
+  vote_count: number
+}
+
+type MediaTv = {
+  backdrop_path: string,
+  first_air_date: string,
+  genre_ids: number[],
+  id: number,
+  media_type: string,
+  name: string,
+  origin_country: string[]
+  original_language: string,
+  original_name: string,
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  vote_average: number,
+  vote_count: number
+}
+
 type HomeProps = {
   populars: {
     name: string;
-    items: {
-      backdrop_path: string,
-      first_air_date: string,
-      genre_ids: number[],
-      id: number,
-      media_type: string,
-      name: string,
-      origin_country: string[]
-      original_language: string,
-      original_name: string,
-      overview: string,
-      popularity: number,
-      poster_path: string,
-      vote_average: number,
-      vote_count: number
-    }[]
+    items: MediaMovie[] | MediaTv[]
   },
   trailers: {
-    items: {
-      adult: boolean,
-      backdrop_path: string;
-      genre_ids: number[],
-      id: number,
-      media_type: string,
-      original_language: string,
-      original_title: string,
-      overview: string,
-      popularity: number,
-      poster_path: string,
-      release_date: string,
-      title: string,
-      video: boolean,
-      vote_average: number,
-      vote_count: number
-    }[]
+    items: MediaMovie[]
   }
 }
 
@@ -168,9 +172,32 @@ export default function Home (props: HomeProps) {
           <h3 className="text-2xl font-medium text-black dark:text-white">Os mais populares</h3>
           <div className="grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5">
             {
-              populars.items.map((movie) => {
-                const resultDate = movie.first_air_date ? format(new Date(movie.first_air_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR }) : '-'
-                return <CardMovie link={`${category}/${movie.id}`} key={movie.id} image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={movie.name || movie.title} date={resultDate} rate={movie.vote_average} />
+              populars.items.map((item: MediaMovie | MediaTv) => {
+                if (item.media_type === 'movie') {
+                  const movie = item as MediaMovie
+                  return (
+                    <CardMovie
+                      link={`/movie/${movie.id}`}
+                      key={movie.id}
+                      image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                      title={movie.title}
+                      date={format(new Date(movie.release_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                      rate={movie.vote_average}
+                    />
+                  )
+                } else {
+                  const tv = item as MediaTv
+                  return (
+                    <CardMovie
+                      link={`/tv/${tv.id}`}
+                      key={tv.id}
+                      image={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`}
+                      title={tv.name}
+                      date={format(new Date(tv.first_air_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                      rate={tv.vote_average}
+                    />
+                  )
+                }
               })
             }
           </div>
@@ -186,7 +213,7 @@ export async function getStaticPaths () {
   const popularList = lists.results.filter((itemList) => itemList.name.includes('popular'))
   const paths = popularList.map((listItem) => ({
     params: {
-      category: listItem.name.replace('popular-', '')
+      category_id: listItem.name.replace('popular-', '')
     }
   }))
   return {
@@ -195,9 +222,9 @@ export async function getStaticPaths () {
   }
 }
 
-export async function getStaticProps ({ params: { category } }) {
+export async function getStaticProps ({ params: { category_id } }) {
   const lists = await getLists()
-  const [trailers, populars] = lists.results.filter((itemList) => itemList.name.includes(category))
+  const [trailers, populars] = lists.results.filter((itemList) => itemList.name.includes(category_id))
   const trailerList = await getList(trailers.id)
   const popularsList = await getList(populars.id)
   return {
