@@ -12,7 +12,7 @@ import CardCast from 'components/CardCast'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 // Lib
-import { getMedia } from 'lib/lists'
+import { getMedia } from 'lib/medias'
 
 // Types
 import MediaMovie from 'types/MediaMovie'
