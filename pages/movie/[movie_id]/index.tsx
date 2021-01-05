@@ -31,7 +31,7 @@ type MovieProps = {
 
 export default function Movie (props: MovieProps) {
   const { media, language } = props
-  const { isFallback, back } = useRouter()
+  const { isFallback, back, query } = useRouter()
   const [showModal, setShowModal] = useState({
     visible: false,
     content: null
@@ -80,7 +80,7 @@ export default function Movie (props: MovieProps) {
   }
 
   return (
-    <Layout activeCategory="streaming">
+    <Layout activeCategory={query.category as string}>
       {modal}
       <Head>
         <title>

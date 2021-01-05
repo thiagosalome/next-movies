@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-type CardMovieProps = {
+type CardMediaProps = {
   link: string;
   image: string;
   title: string;
@@ -9,9 +9,9 @@ type CardMovieProps = {
   date: string;
 }
 
-const CardMovie = ({
+const CardMedia = ({
   link, image, title, rate, date
-}: CardMovieProps) => {
+}: CardMediaProps) => {
   const fillYellow = rate * 10
   const fillGray = (10 - rate) * 10
   return (
@@ -30,8 +30,8 @@ const CardMovie = ({
   )
 }
 
-CardMovie.defaultProps = {
+CardMedia.defaultProps = {
   rate: 5
 }
 
-export default CardMovie
+export default CardMedia

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Link from 'next/link'
 import {
   FiMenu, FiMoon, FiSearch, FiSun
 } from 'react-icons/fi'
@@ -18,7 +19,11 @@ const Header = ({ title }: HeaderProps) => {
         <button type="button" className="mr-3">
           <FiMenu color="#91204D" size={32} />
         </button>
-        <Logo />
+        <Link href='/'>
+          <a>
+            <Logo />
+          </a>
+        </Link>
         {
           (theme === 'light')
             ? <button type="button" className="ml-auto focus:outline-none" onClick={() => setTheme('dark')}><FiMoon color="#91204D" size={32} /></button>

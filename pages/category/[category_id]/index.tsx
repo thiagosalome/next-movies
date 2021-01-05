@@ -7,7 +7,7 @@ import { FaPlay } from 'react-icons/fa'
 
 // Components
 import Layout from 'components/Layout'
-import CardMovie from 'components/CardMovie'
+import CardMedia from 'components/CardMedia'
 
 // Lib
 import { getList, getLists } from 'lib/lists'
@@ -176,8 +176,8 @@ export default function Home (props: HomeProps) {
                 if (item.media_type === 'movie') {
                   const movie = item as MediaMovie
                   return (
-                    <CardMovie
-                      link={`/movie/${movie.id}`}
+                    <CardMedia
+                      link={`/movie/${movie.id}?category=${category}`}
                       key={movie.id}
                       image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                       title={movie.title}
@@ -188,8 +188,8 @@ export default function Home (props: HomeProps) {
                 } else {
                   const tv = item as MediaTv
                   return (
-                    <CardMovie
-                      link={`/tv/${tv.id}`}
+                    <CardMedia
+                      link={`/tv/${tv.id}?category=${category}`}
                       key={tv.id}
                       image={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`}
                       title={tv.name}

@@ -49,4 +49,8 @@ const Layout = ({ activeCategory, children }: LayoutProps) => {
   )
 }
 
+Layout.defaultProps = {
+  activeCategory: 'streaming'
+}
+
 export default Layout

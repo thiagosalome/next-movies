@@ -30,17 +30,18 @@ type TvProps = {
 
 export default function Tv (props: TvProps) {
   const { media, language } = props
-  const { isFallback, back } = useRouter()
+  const { isFallback, back, query } = useRouter()
   const [showModal, setShowModal] = useState({
     visible: false,
     content: null
   })
-  const fillYellow = media.vote_average * 10
-  const fillGray = (10 - media.vote_average) * 10
 
   if (isFallback) {
     return <p>Carregando...</p>
   }
+
+  const fillYellow = media.vote_average * 10
+  const fillGray = (10 - media.vote_average) * 10
 
   const modal = (
     <Modal visible={showModal.visible} setVisible={(visible: boolean) => setShowModal({ ...showModal, visible })}>
@@ -79,7 +80,7 @@ export default function Tv (props: TvProps) {
   }
 
   return (
-    <Layout activeCategory="streaming">
+    <Layout activeCategory={query.category as string}>
       {modal}
       <Head>
         <title>
