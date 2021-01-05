@@ -53,7 +53,7 @@ export default function Movie (props: MovieProps) {
     let content = <></>
     switch (type) {
       case 'image':
-        content = <img src={source} />
+        content = <img className='rounded-2xl' src={source} />
         break
       case 'video':
         content = (
@@ -110,18 +110,18 @@ export default function Movie (props: MovieProps) {
             </div>
           </div>
         </div>
-        {
-          media.videos.results.length > 0 && (
-            <div id="ver-trailer" className="px-4 py-5 xl:px-9 xl:mt-36">
-              <button onClick={() => handleContentModal(`https://www.youtube.com/embed/${media.videos.results[0].key}`, 'video')} className="focus:outline-none flex items-center ">
-                <div className="bg-orange rounded-full flex items-center justify-center h-6 w-6">
-                  <FaPlay color="#FFFFFF" size={10} />
-                </div>
-                    <p className="text-lg text-orange ml-3">Ver trailer</p>
-              </button>
-            </div>
-          )
-        }
+        <div id="ver-trailer" className={`px-4 py-5 xl:px-9 ${media.videos.results.length > 0 ? 'xl:mt-36' : 'xl:mt-40'}`}>
+          {
+            media.videos.results.length > 0 && (
+                <button onClick={() => handleContentModal(`https://www.youtube.com/embed/${media.videos.results[0].key}`, 'video')} className="focus:outline-none flex items-center ">
+                  <div className="bg-orange rounded-full flex items-center justify-center h-6 w-6">
+                    <FaPlay color="#FFFFFF" size={10} />
+                  </div>
+                      <p className="text-lg text-orange ml-3">Ver trailer</p>
+                </button>
+            )
+          }
+        </div>
         <div id="sinopse" className="px-4 pb-4 xl:p-9 xl:ml-64 xl:-mt-56">
           <h3 className="text-2xl font-medium text-black dark:text-white">Sinopse</h3>
           <p className="text-lg text-black leading-5 mt-2 mb-6 dark:text-white">
