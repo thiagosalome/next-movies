@@ -36,12 +36,13 @@ export default function Movie (props: MovieProps) {
     visible: false,
     content: null
   })
-  const fillYellow = media.vote_average * 10
-  const fillGray = (10 - media.vote_average) * 10
 
   if (isFallback) {
     return <p>Carregando...</p>
   }
+
+  const fillYellow = media.vote_average * 10
+  const fillGray = (10 - media.vote_average) * 10
 
   const modal = (
     <Modal visible={showModal.visible} setVisible={(visible: boolean) => setShowModal({ ...showModal, visible })}>

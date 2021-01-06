@@ -17,11 +17,3 @@ Requisitos Técnicos:
     ✔ Extracting Components (Componentes repetidos) @done (11/29/2020, 4:51:11 PM)
     ☐ Adding New Utilities
     ☐ Functions & Directives (@tailwind, @apply, @layer, @variants)
-
-☐ Tarefas:
-  ✔ Gerar página para cada tipo popular da lista @done (12/20/2020, 9:43:13 AM)
-  ✔ Listar links dinamicamente na Sidebar @done (12/20/2020, 10:26:53 AM)
-  ✔ Criar variáveis de ambiente @done (12/20/2020, 10:30:48 AM)
-  ☐ Montar rota interna de filme
-  ☐ Criar modal para ver trailers dos filmes
-  ☐ Montar funcionalidade de busca
