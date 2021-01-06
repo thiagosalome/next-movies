@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { FaPlay } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 
 // Components
 import Layout from 'components/Layout'
@@ -15,6 +16,7 @@ import { getList, getLists } from 'lib/lists'
 
 // Types
 import MediaMovie from 'types/MediaMovie'
+import Network from 'types/Network'
 
 type SummaryMediaMovie = {
   adult: boolean,
@@ -63,7 +65,23 @@ type HomeProps = {
 
 export default function Home (props: HomeProps) {
   const { populars, trailers } = props
+  const { asPath } = useRouter()
   const category = populars.name.replace('popular-', '')
+  const [enterprises, setEnterprises] = useState<Network[]>([])
+  const enterprisesList = {
+    streaming: {
+      network: [213, 1024, 2739, 4142]
+    },
+    'na-tv': {
+      network: [41, 49, 19, 2076]
+    },
+    'para-alugar': {
+      network: [1102, 1377, 247]
+    },
+    'nos-cinemas': {
+      company: [2, 7, 4, 5]
+    }
+  }
   const [showModal, setShowModal] = useState({
     visible: false,
     content: null
@@ -74,6 +92,26 @@ export default function Home (props: HomeProps) {
       {showModal.content}
     </Modal>
   )
+
+  useEffect(() => {
+    function getCompanies () {
+      const enterpriseCategory = enterprisesList[category]
+      const enterpriseType = Object.keys(enterpriseCategory)[0]
+      const companiesPromises = enterpriseCategory[enterpriseType].map(id => fetch(`/api/${enterpriseType}?id=${id}`))
+
+      Promise.all(companiesPromises)
+        .then((values) => {
+          const jsonResponses = values.map((response: Response) => response.json())
+
+          Promise.all(jsonResponses)
+            .then(response => {
+              setEnterprises(response)
+            })
+        })
+    }
+
+    getCompanies()
+  }, [asPath])
 
   async function handleContentModal (mediaType: string, id: number) {
     const mediaAPI = await fetch(`/api/media?media_type=${mediaType}&id=${id}`)
@@ -162,46 +200,20 @@ export default function Home (props: HomeProps) {
         <div id="empresas">
           <h3 className="text-2xl font-medium text-black dark:text-white">Empresas</h3>
           <div className="my-6 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-5">
-            <div className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
-              <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
-                <img className="object-cover w-full h-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/407px-Netflix_icon.svg.png" alt="Netflix" />
-              </figure>
-              <div className="mx-4">
-                <h4 className="text-base text-black mb-1 dark:text-white">Netflix</h4>
-                <p className="col-span-2 text-xs text-gray-500 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <a className="p-1 px-2 mw-20 flex-shrink-0 ml-auto rounded bg-orange text-white text-base text-center uppercase font-semibold" href="http://" target="_blank" rel="noopener noreferrer">R$ 19,99</a>
-            </div>
-            <div className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
-              <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
-                <img className="object-cover w-full h-full" src="https://cdn6.aptoide.com/imgs/1/f/0/1f0feac18fbdaf45b63aaabae4ff3362_icon.png?w=160" alt="Amazon Prime Video" />
-              </figure>
-              <div className="mx-4">
-                <h4 className="text-base text-black mb-1 dark:text-white">Amazon Prime Video</h4>
-                <p className="col-span-2 text-xs text-gray-500 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <a className="p-1 px-2 mw-20 flex-shrink-0 ml-auto rounded bg-orange text-white text-base text-center uppercase font-semibold" href="http://" target="_blank" rel="noopener noreferrer">R$ 19,99</a>
-            </div>
-            <div className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
-              <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
-                <img className="object-cover w-full h-full" src="https://cdn.mos.cms.futurecdn.net/ZaaM8Q3hpBHatBqMw8EUDF-970-80.jpg.webp" alt="Disney +" />
-              </figure>
-              <div className="mx-4">
-                <h4 className="text-base text-black mb-1 dark:text-white">Disney +</h4>
-                <p className="col-span-2 text-xs text-gray-500 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <a className="p-1 px-2 mw-20 flex-shrink-0 ml-auto rounded bg-orange text-white text-base text-center uppercase font-semibold" href="http://" target="_blank" rel="noopener noreferrer">R$ 19,99</a>
-            </div>
-            <div className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
-              <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
-                <img className="object-cover w-full h-full" src="https://assets.materialup.com/uploads/147cc4e7-d765-4e1d-a329-cb51e3dd7b9c/preview.jpg" alt="Plex" />
-              </figure>
-              <div className="mx-4">
-                <h4 className="text-base text-black mb-1 dark:text-white">Plex</h4>
-                <p className="col-span-2 text-xs text-gray-500 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <a className="p-1 px-2 mw-20 flex-shrink-0 ml-auto rounded bg-orange text-white text-base text-center uppercase font-semibold" href="http://" target="_blank" rel="noopener noreferrer">R$ 19,99</a>
-            </div>
+            {
+              enterprises.map((enterprise: Network) => (
+                <div key={enterprise.id} className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
+                  <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
+                    <img className="object-contain w-full h-full" src={`https://image.tmdb.org/t/p/original/${enterprise.logo_path}`} alt={enterprise.name} />
+                  </figure>
+                  <div className="mx-4">
+                    <h4 className="text-base text-black mb-1 dark:text-white">{enterprise.name}</h4>
+                    <p className="col-span-2 text-xs text-gray-500 dark:text-white">{enterprise.headquarters}</p>
+                  </div>
+                  <a className="p-1 px-2 mw-20 flex-shrink-0 ml-auto rounded bg-orange text-white text-base text-center uppercase font-semibold" href={enterprise.homepage} target="_blank" rel="noopener noreferrer">Acessar</a>
+                </div>
+              ))
+            }
           </div>
         </div>
         <div id="os-mais-populares">
