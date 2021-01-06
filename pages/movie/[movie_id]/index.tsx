@@ -12,6 +12,8 @@ import { IoMdArrowBack } from 'react-icons/io'
 import Layout from 'components/Layout'
 import CardCast from 'components/CardCast'
 import Modal from 'components/Modal'
+import Logo from 'components/Logo'
+import Loading from 'components/Loading'
 
 // Lib
 import { getMedia } from 'lib/medias'
@@ -38,7 +40,14 @@ export default function Movie (props: MovieProps) {
   })
 
   if (isFallback) {
-    return <p>Carregando...</p>
+    return (
+      <Layout>
+        <div className='absolute top-0 bottom-0 left-0 right-0 bg-white flex flex-col items-center justify-center dark:bg-black'>
+          <Logo />
+          <Loading />
+        </div>
+      </Layout>
+    )
   }
 
   const fillYellow = media.vote_average * 10
