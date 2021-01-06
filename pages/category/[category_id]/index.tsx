@@ -12,7 +12,6 @@ import Modal from 'components/Modal'
 
 // Lib
 import { getList, getLists } from 'lib/lists'
-import { getMedia } from 'lib/medias'
 
 // Types
 import MediaMovie from 'types/MediaMovie'
@@ -77,7 +76,8 @@ export default function Home (props: HomeProps) {
   )
 
   async function handleContentModal (mediaType: string, id: number) {
-    const media: MediaMovie = await getMedia(mediaType, id)
+    const mediaAPI = await fetch(`/api/media?media_type=${mediaType}&id=${id}`)
+    const media: MediaMovie = await mediaAPI.json()
     if (media.videos.results.length > 0) {
       const content = (
         <iframe
