@@ -16,10 +16,11 @@ type SidebarProps = {
     'nos-cinemas': Category;
   },
   activeCategory: string;
+  showSidebar: boolean;
 }
 
-const Sidebar = ({ categories, activeCategory }: SidebarProps) => (
-  <aside className="w-64 flex-shrink-0 py-8 px-5 bg-white hidden dark:bg-black xl:block">
+const Sidebar = ({ categories, activeCategory, showSidebar }: SidebarProps) => (
+  <aside className={`${showSidebar ? 'left-0' : '-left-full'} transition-all duration-500 absolute top-0 bottom-0 z-10 w-64 flex-shrink-0 py-8 px-5 bg-white dark:bg-black xl:left-0 xl:relative`}>
     <Link href='/'>
       <a>
         <Logo />

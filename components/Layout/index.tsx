@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { ReactNode, useContext, useState } from 'react'
 import { FaHandPointUp } from 'react-icons/fa'
 import { MdViewStream } from 'react-icons/md'
 import { RiComputerFill, RiMovie2Fill } from 'react-icons/ri'
@@ -17,6 +17,7 @@ type LayoutProps = {
 
 const Layout = ({ activeCategory, children }: LayoutProps) => {
   const { theme } = useContext(ThemeContext)
+  const [showSidebar, setShowSidebar] = useState(false)
   const categories = {
     streaming: {
       name: 'Streaming',
@@ -38,10 +39,10 @@ const Layout = ({ activeCategory, children }: LayoutProps) => {
 
   return (
     <>
-      <main className={`xl:flex ${theme}`}>
-        <Sidebar categories={categories} activeCategory={activeCategory} />
-        <div className="flex-grow dark:bg-black">
-          <Header title={categories[activeCategory].name} />
+      <main className={`xl:flex ${showSidebar ? 'overflow-hidden' : ''} ${theme}`}>
+        <Sidebar showSidebar={showSidebar} categories={categories} activeCategory={activeCategory} />
+        <div className={`${showSidebar ? 'left-64' : 'left-0'} relative transition-all duration-500 flex-grow dark:bg-black`}>
+          <Header setShowSidebar={setShowSidebar} showSidebar={showSidebar} title={categories[activeCategory].name} />
           {children}
         </div>
       </main>
