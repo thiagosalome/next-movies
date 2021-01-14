@@ -1,12 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import { format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 type CardMediaProps = {
   link: string;
-  image: string;
+  image?: string;
   title: string;
   rate?: number;
-  date: string;
+  date?: string;
 }
 
 const CardMedia = ({
@@ -17,14 +19,18 @@ const CardMedia = ({
   return (
     <Link href={link}>
       <a className="bg-white rounded-xl p-4 cursor-pointer dark:bg-black">
-        <figure className="overflow-hidden w-full h-60 rounded-xl">
-          <img className="w-full h-full object-cover" src={image} alt={title} />
-        </figure>
+        {
+          image && (
+            <figure className="overflow-hidden w-full h-60 rounded-xl">
+              <img className="w-full h-full object-cover" src={image} alt={title} />
+            </figure>
+          )
+        }
         <h4 className="text-sm text-black text-center mt-2 leading-4 dark:text-white">{title}</h4>
         <div className="text-base text-center mt-1 mb-2">
           <span className="bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, rgb(252, 238, 33) ${fillYellow}%, rgb(197, 200, 212) ${fillGray}%)`, WebkitTextFillColor: 'transparent' }}>★★★★★</span>
         </div>
-        <p className="text-xs text-gray-500 text-center dark:text-white">{date}</p>
+        { date && <p className="text-xs text-gray-500 text-center dark:text-white">{format(new Date(date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</p>}
       </a>
     </Link>
   )

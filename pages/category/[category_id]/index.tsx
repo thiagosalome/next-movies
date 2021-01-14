@@ -229,7 +229,7 @@ export default function Home (props: HomeProps) {
                       key={movie.id}
                       image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                       title={movie.title}
-                      date={format(new Date(movie.release_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                      date={movie.release_date}
                       rate={movie.vote_average}
                     />
                   )
@@ -241,7 +241,7 @@ export default function Home (props: HomeProps) {
                       key={tv.id}
                       image={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`}
                       title={tv.name}
-                      date={format(new Date(tv.first_air_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                      date={tv.first_air_date}
                       rate={tv.vote_average}
                     />
                   )

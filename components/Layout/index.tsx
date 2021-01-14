@@ -39,9 +39,9 @@ const Layout = ({ activeCategory, children }: LayoutProps) => {
 
   return (
     <>
-      <main className={`xl:flex ${showSidebar ? 'overflow-hidden' : ''} ${theme}`}>
+      <main className={`xl:flex min-h-screen ${showSidebar ? 'overflow-hidden' : ''} ${theme}`}>
         <Sidebar showSidebar={showSidebar} categories={categories} activeCategory={activeCategory} />
-        <div className={`${showSidebar ? 'left-64' : 'left-0'} relative transition-all duration-500 flex-grow dark:bg-black`}>
+        <div className={`${showSidebar ? 'left-64' : 'left-0'} relative transition-left duration-500 flex-grow dark:bg-black`}>
           <Header setShowSidebar={setShowSidebar} showSidebar={showSidebar} title={categories[activeCategory].name} />
           {children}
         </div>

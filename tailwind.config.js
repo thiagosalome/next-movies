@@ -36,6 +36,9 @@ module.exports = {
         'card-trailers': 'repeat(6, minmax(128.5px, 1fr))',
         'xl:card-trailers': 'repeat(2, minmax(180px, 1fr))',
         'background-images': 'repeat(2, minmax(0, 200px))'
+      },
+      transitionProperty: {
+        left: 'left'
       }
     }
   },
