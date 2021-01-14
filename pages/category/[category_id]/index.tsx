@@ -21,7 +21,7 @@ import Network from 'types/Network'
 type HomeProps = {
   populars: {
     name: string;
-    items: SummaryMediaMovie[] | SummaryMediaTv[]
+    items: SummaryMediaMovie[]
   },
   trailers: {
     items: SummaryMediaMovie[]

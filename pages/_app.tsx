@@ -14,7 +14,7 @@ function App ({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useLocalStorage('theme', 'light')
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme: theme as string, setTheme: setTheme as (value: string) => void }}>
       <Component {...pageProps} />
     </ThemeContext.Provider>
   )
