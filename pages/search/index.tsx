@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import useSWR from 'swr'
 
 // Components
 import Layout from 'components/Layout'
@@ -9,38 +11,20 @@ import CardMedia from 'components/CardMedia'
 import Loading from 'components/Loading'
 import Logo from 'components/Logo'
 
+// Utils
+import fetcher from 'utils/fetcher'
+
 // Types
 import { SummaryMediaMovie } from 'types/MediaMovie'
 import { SummaryMediaTv } from 'types/MediaTv'
 
 export default function Search () {
-  const [medias, setMedias] = useState<[SummaryMediaMovie[], SummaryMediaTv[]]>()
   const { query } = useRouter()
   const { q } = query
+  const responseMovie = useSWR(`/api/media?media_type=movie&query=${q}`, fetcher)
+  const responseTv = useSWR(`/api/media?media_type=tv&query=${q}`, fetcher)
 
-  useEffect(() => {
-    function getMedias () {
-      const mediaMovieAPI = fetch(`/api/media?media_type=movie&query=${q}`)
-      const mediaTvAPI = fetch(`/api/media?media_type=tv&query=${q}`)
-
-      Promise.all([mediaMovieAPI, mediaTvAPI])
-        .then((responses) => {
-          const jsonResponses = responses.map(response => response.json())
-
-          Promise.all(jsonResponses)
-            .then((responsesJSON) => {
-              setMedias([
-                responsesJSON[0].results,
-                responsesJSON[1].results
-              ])
-            })
-        })
-    }
-
-    getMedias()
-  }, [q])
-
-  if (!medias) {
+  if (!responseMovie.data || !responseTv.data) {
     return (
       <Layout>
         <div className='absolute top-0 bottom-0 left-0 right-0 bg-white flex flex-col items-center justify-center dark:bg-black'>
@@ -63,7 +47,7 @@ export default function Search () {
           <h4 className="text-xl font-medium text-black mt-3 dark:text-white">Filmes</h4>
           <div className="grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5">
             {
-              medias[0].map((movie: SummaryMediaMovie) => (
+              responseMovie.data.results.map((movie: SummaryMediaMovie) => (
                 <CardMedia
                   link={`/movie/${movie.id}`}
                   key={movie.id}
@@ -78,7 +62,7 @@ export default function Search () {
           <h4 className="text-xl font-medium text-black mt-3 dark:text-white">TV</h4>
           <div className="grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5">
             {
-              medias[1].map((tv: SummaryMediaTv) => (
+              responseTv.data.results.map((tv: SummaryMediaTv) => (
                 <CardMedia
                   link={`/tv/${tv.id}`}
                   key={tv.id}

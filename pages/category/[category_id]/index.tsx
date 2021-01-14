@@ -237,7 +237,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params: { category_id } }) => {
   const lists = await getLists()
-  const [trailers, populars] = lists.results.filter((itemList) => itemList.name.includes(category_id))
+  const [populars, trailers] = lists.results.filter((itemList) => itemList.name.includes(category_id))
   const trailerList = await getList(trailers.id)
   const popularsList = await getList(populars.id)
   return {
