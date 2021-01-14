@@ -17,11 +17,11 @@ const Search = () => {
 
   return (
     <div className="w-96 flex items-center pl-3 ml-auto bg-gray-100 rounded-2xl dark:bg-gray-800">
-    <span className="h-full">
-      <FiSearch className="stroke-current text-gray-500" size={24} />
-    </span>
-    <input onChange={delaySearch} className="h-full w-full bg-transparent p-3 text-gray-500 outline-none" type="text" />
-  </div>
+      <span className="h-full">
+        <FiSearch className="stroke-current text-gray-500" size={24} />
+      </span>
+      <input onChange={delaySearch} className="h-full w-full bg-transparent p-3 text-gray-500 outline-none" type="text" />
+    </div>
   )
 }
 

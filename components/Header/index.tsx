@@ -42,7 +42,7 @@ const Header = ({ title, showSidebar, setShowSidebar }: HeaderProps) => {
         }
       </header>
       <header className="bg-white py-5 px-4 flex items-center dark:bg-black xl:py-7">
-        <h2 className="text-xl mr-2 font-medium text-orange xl:text-3xl">{title}</h2>
+        <h2 className="text-xl mr-2 font-medium flex-shrink-0 text-orange xl:text-3xl">{title}</h2>
         <Search />
         {
           (theme === 'light')

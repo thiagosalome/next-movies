@@ -23,7 +23,7 @@ const Modal = ({ children, visible, setVisible }: ModalProps) => {
   return (
     domReady && visible && (
       createPortal(
-        <div onClick={close} className='absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center z-10'>
+        <div onClick={close} className='absolute top-0 left-0 right-0 bottom-0 px-4 bg-black bg-opacity-80 flex items-center justify-center z-10'>
           {children}
           <button onClick={() => setVisible(false)} className='focus:outline-none bg-transparent border-none absolute top-5 right-5'><IoIosCloseCircleOutline color='white' size={35} /></button>
         </div>,
