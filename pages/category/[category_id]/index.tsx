@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
 import { FaPlay } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
@@ -15,43 +14,9 @@ import Modal from 'components/Modal'
 import { getList, getLists } from 'lib/lists'
 
 // Types
-import MediaMovie from 'types/MediaMovie'
+import { SummaryMediaMovie, FullMediaMovie } from 'types/MediaMovie'
+import { SummaryMediaTv } from 'types/MediaTv'
 import Network from 'types/Network'
-
-type SummaryMediaMovie = {
-  adult: boolean,
-  backdrop_path: string;
-  genre_ids: number[],
-  id: number,
-  media_type: string,
-  original_language: string,
-  original_title: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  release_date: string,
-  title: string,
-  video: boolean,
-  vote_average: number,
-  vote_count: number
-}
-
-type SummaryMediaTv = {
-  backdrop_path: string,
-  first_air_date: string,
-  genre_ids: number[],
-  id: number,
-  media_type: string,
-  name: string,
-  origin_country: string[]
-  original_language: string,
-  original_name: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  vote_average: number,
-  vote_count: number
-}
 
 type HomeProps = {
   populars: {
@@ -100,8 +65,8 @@ export default function Home (props: HomeProps) {
       const companiesPromises = enterpriseCategory[enterpriseType].map(id => fetch(`/api/${enterpriseType}?id=${id}`))
 
       Promise.all(companiesPromises)
-        .then((values) => {
-          const jsonResponses = values.map((response: Response) => response.json())
+        .then((responses) => {
+          const jsonResponses = responses.map((response: Response) => response.json())
 
           Promise.all(jsonResponses)
             .then(response => {
@@ -115,7 +80,7 @@ export default function Home (props: HomeProps) {
 
   async function handleContentModal (mediaType: string, id: number) {
     const mediaAPI = await fetch(`/api/media?media_type=${mediaType}&id=${id}`)
-    const media: MediaMovie = await mediaAPI.json()
+    const media: FullMediaMovie = await mediaAPI.json()
     if (media.videos.results.length > 0) {
       const content = (
         <iframe
@@ -256,7 +221,7 @@ export default function Home (props: HomeProps) {
 }
 
 // Generate the path for each posts
-export async function getStaticPaths () {
+export const getStaticPaths: GetStaticPaths = async () => {
   const lists = await getLists()
   const popularList = lists.results.filter((itemList) => itemList.name.includes('popular'))
   const paths = popularList.map((listItem) => ({
@@ -270,7 +235,7 @@ export async function getStaticPaths () {
   }
 }
 
-export async function getStaticProps ({ params: { category_id } }) {
+export const getStaticProps: GetStaticProps = async ({ params: { category_id } }) => {
   const lists = await getLists()
   const [trailers, populars] = lists.results.filter((itemList) => itemList.name.includes(category_id))
   const trailerList = await getList(trailers.id)

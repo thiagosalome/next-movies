@@ -9,40 +9,9 @@ import CardMedia from 'components/CardMedia'
 import Loading from 'components/Loading'
 import Logo from 'components/Logo'
 
-type SummaryMediaMovie = {
-  adult: boolean,
-  backdrop_path: string;
-  genre_ids: number[],
-  id: number,
-  media_type: string,
-  original_language: string,
-  original_title: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  release_date: string,
-  title: string,
-  video: boolean,
-  vote_average: number,
-  vote_count: number
-}
-
-type SummaryMediaTv = {
-  backdrop_path: string,
-  first_air_date: string,
-  genre_ids: number[],
-  id: number,
-  media_type: string,
-  name: string,
-  origin_country: string[]
-  original_language: string,
-  original_name: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  vote_average: number,
-  vote_count: number
-}
+// Types
+import { SummaryMediaMovie } from 'types/MediaMovie'
+import { SummaryMediaTv } from 'types/MediaTv'
 
 export default function Search () {
   const [medias, setMedias] = useState<[SummaryMediaMovie[], SummaryMediaTv[]]>()
@@ -56,9 +25,10 @@ export default function Search () {
 
       Promise.all([mediaMovieAPI, mediaTvAPI])
         .then((responses) => {
-          Promise.all(responses.map(response => response.json()))
+          const jsonResponses = responses.map(response => response.json())
+
+          Promise.all(jsonResponses)
             .then((responsesJSON) => {
-              console.log('responsesJSON[0]', responsesJSON[0])
               setMedias([
                 responsesJSON[0].results,
                 responsesJSON[1].results
@@ -67,7 +37,6 @@ export default function Search () {
         })
     }
 
-    console.log('q', q)
     getMedias()
   }, [q])
 
@@ -82,8 +51,6 @@ export default function Search () {
     )
   }
 
-  console.log('medias', medias)
-
   return (
     <Layout activeCategory='streaming'>
       <Head>
@@ -96,21 +63,16 @@ export default function Search () {
           <h4 className="text-xl font-medium text-black mt-3 dark:text-white">Filmes</h4>
           <div className="grid grid-cols-card-movies grid-rows-2 gap-5 my-5 px-4 -mx-4 overflow-x-auto xl:grid-cols-5">
             {
-              medias[0].map((movie: SummaryMediaMovie) => {
-                console.log('movie.id', movie.id)
-                console.log('movie.release_date', movie.release_date)
-
-                return (
-                  <CardMedia
-                    link={`/movie/${movie.id}`}
-                    key={movie.id}
-                    image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    title={movie.title}
-                    date={movie.release_date}
-                    rate={movie.vote_average}
-                  />
-                )
-              })
+              medias[0].map((movie: SummaryMediaMovie) => (
+                <CardMedia
+                  link={`/movie/${movie.id}`}
+                  key={movie.id}
+                  image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  title={movie.title}
+                  date={movie.release_date}
+                  rate={movie.vote_average}
+                />
+              ))
             }
           </div>
           <h4 className="text-xl font-medium text-black mt-3 dark:text-white">TV</h4>

@@ -20,10 +20,10 @@ import { getMedia } from 'lib/medias'
 import { getLanguages } from 'lib/languages'
 
 // Types
-import MediaMovie from 'types/MediaMovie'
+import { FullMediaMovie } from 'types/MediaMovie'
 
 type MovieProps = {
-  media: MediaMovie,
+  media: FullMediaMovie,
   language: {
     iso_639_1: string,
     english_name: string,
@@ -236,7 +236,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params: { movie_id } }) => {
-  const media: MediaMovie = await getMedia('movie', movie_id)
+  const media: FullMediaMovie = await getMedia('movie', movie_id)
   const languages = await getLanguages()
   const language = languages.find((lng) => lng.iso_639_1 === media.original_language)
   return {

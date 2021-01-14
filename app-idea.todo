@@ -1,13 +1,13 @@
 Requisitos Técnicos:
   ☐ Utilizar NextJS
-    ☐ Utilizar tag Link
-    ☐ Utilizar diretório public para imagens
-    ☐ Utilizar tag Head
+    ✔ Utilizar tag Link @done (1/14/2021, 2:13:52 PM)
+    ✔ Utilizar diretório public para imagens @done (1/14/2021, 2:14:02 PM)
+    ✔ Utilizar tag Head @done (1/14/2021, 2:26:07 PM)
     ✔ Utilizar Layout Component @done (11/30/2020, 7:37:36 AM)
-    ☐ Utilizar Global Styles
-    ☐ Utilizar getStaticProps para Static Generation
-    ☐ Utilizar getStaticPaths para Dynamic Routes
-    ☐ Utilizar API routes
+    ✔ Utilizar Global Styles @done (1/14/2021, 2:26:40 PM)
+    ✔ Utilizar getStaticProps para Static Generation @done (1/14/2021, 2:31:25 PM)
+    ✔ Utilizar getStaticPaths para Dynamic Routes @done (1/14/2021, 2:31:31 PM)
+    ✔ Utilizar API routes @done (1/14/2021, 2:32:01 PM)
     ☐ Utilizar SWR (Filme do dia)
   ☐ Utilizar TailwindCSS
     ✔ Mobile First @done (11/29/2020, 4:41:15 PM)
