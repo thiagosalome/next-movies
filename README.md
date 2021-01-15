@@ -5,7 +5,7 @@
 
 <!-- Badges -->
 <p align="center">
-  <a href="https://thiagosalome.github.io/next-movies/" target="_blank"><img alt="Next Movies" title="Next Movies" src="https://img.shields.io/badge/Aplica%C3%A7%C3%A3o-Next Movies-FA5302" />
+  <a href="http://next-movies.thiagosalome.vercel.app/" target="_blank"><img alt="Next Movies" title="Next Movies" src="https://img.shields.io/badge/Aplica%C3%A7%C3%A3o-Next Movies-FA5302" />
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/thiagosalome/next-movies?color=FA5302">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/thiagosalome/next-movies?color=FA5302">
   <img alt="GitHub package.json version badge" src="https://img.shields.io/github/downloads/thiagosalome/next-movies/total?color=FA5302">
