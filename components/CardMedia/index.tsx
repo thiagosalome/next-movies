@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
@@ -21,8 +22,8 @@ const CardMedia = ({
       <a className="bg-white rounded-xl p-4 cursor-pointer dark:bg-black">
         {
           image && (
-            <figure className="overflow-hidden w-full h-60 rounded-xl">
-              <img className="w-full h-full object-cover" src={image} alt={title} />
+            <figure className="overflow-hidden relative w-full h-60 rounded-xl">
+              <Image className="w-full h-full object-cover" src={image} layout='fill' alt={title} />
             </figure>
           )
         }

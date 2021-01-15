@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import { FaPlay } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
@@ -111,7 +112,7 @@ export default function Home (props: HomeProps) {
           <h3 className="text-2xl font-medium text-black dark:text-white">Últimos Trailers</h3>
           <div className="grid grid-cols-card-trailers grid-rows-card-trailers overflow-x-auto gap-4 my-6 px-4 -mx-4 xl:grid-cols-4 xl:grid-rows-xl:card-trailers xl:-mx-0 xl:px-0">
             <div onClick={() => handleContentModal(trailers.items[0].media_type, trailers.items[0].id)} className="row-start-1 row-end-4 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-3">
-              <img className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[0].poster_path}`} alt={trailers.items[0].title} title={trailers.items[0].title} />
+              <Image layout='fill' className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[0].poster_path}`} alt={trailers.items[0].title} title={trailers.items[0].title} />
               <div className="relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16">
                 <FaPlay color="#FFFFFF" size={30} />
               </div>
@@ -121,7 +122,7 @@ export default function Home (props: HomeProps) {
               </div>
             </div>
             <div onClick={() => handleContentModal(trailers.items[1].media_type, trailers.items[1].id)} className="row-start-4 row-end-7 relative rounded-2xl cursor-pointer overflow-hidden flex items-center justify-center group xl:row-start-1 xl:row-end-3">
-              <img className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[1].poster_path}`} alt={trailers.items[1].title} title={trailers.items[1].title} />
+              <Image layout='fill' className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[1].poster_path}`} alt={trailers.items[1].title} title={trailers.items[1].title} />
               <div className="relative bg-black bg-opacity-40 rounded-full flex items-center justify-center h-16 w-16">
                 <FaPlay color="#FFFFFF" size={30} />
               </div>
@@ -131,7 +132,7 @@ export default function Home (props: HomeProps) {
               </div>
             </div>
             <div onClick={() => handleContentModal(trailers.items[2].media_type, trailers.items[2].id)} className="row-start-1 row-end-3 relative rounded-2xl cursor-pointer overflow-hidden flex items-start justify-center group xl:row-start-1 xl:row-end-2">
-              <img className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[2].backdrop_path}`} alt={trailers.items[2].title} title={trailers.items[2].title} />
+              <Image layout='fill' className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[2].backdrop_path}`} alt={trailers.items[2].title} title={trailers.items[2].title} />
               <div className="relative bg-black bg-opacity-40 rounded-full mt-8 flex items-center justify-center h-11 w-11">
                 <FaPlay color="#FFFFFF" size={20} />
               </div>
@@ -141,7 +142,7 @@ export default function Home (props: HomeProps) {
               </div>
             </div>
             <div onClick={() => handleContentModal(trailers.items[3].media_type, trailers.items[3].id)} className="row-start-3 row-end-5 relative rounded-2xl cursor-pointer overflow-hidden flex items-start justify-center group xl:row-start-1 xl:row-end-2">
-              <img className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[3].backdrop_path}`} alt={trailers.items[3].title} title={trailers.items[3].title} />
+              <Image layout='fill' className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[3].backdrop_path}`} alt={trailers.items[3].title} title={trailers.items[3].title} />
               <div className="relative bg-black bg-opacity-40 rounded-full mt-8 flex items-center justify-center h-11 w-11">
                 <FaPlay color="#FFFFFF" size={20} />
               </div>
@@ -151,7 +152,7 @@ export default function Home (props: HomeProps) {
               </div>
             </div>
             <div onClick={() => handleContentModal(trailers.items[4].media_type, trailers.items[4].id)} className="row-start-5 row-end-7 relative rounded-2xl cursor-pointer overflow-hidden flex items-start justify-center group xl:row-start-2 xl:row-end-3 xl:col-start-3 xl:col-end-5">
-              <img className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[4].backdrop_path}`} alt={trailers.items[4].title} title={trailers.items[4].title} />
+              <Image layout='fill' className="absolute object-cover w-full h-full transform scale-100 transition-all group-hover:scale-110" src={`https://image.tmdb.org/t/p/w500${trailers.items[4].backdrop_path}`} alt={trailers.items[4].title} title={trailers.items[4].title} />
               <div className="relative bg-black bg-opacity-40 rounded-full mt-8 flex items-center justify-center h-11 w-11">
                 <FaPlay color="#FFFFFF" size={20} />
               </div>
@@ -168,8 +169,8 @@ export default function Home (props: HomeProps) {
             {
               enterprises.map((enterprise: Network) => (
                 <div key={enterprise.id} className="bg-white p-3 rounded-2xl flex items-center mb-5 dark:bg-black lg:inline-flex lg:mb-0">
-                  <figure className="overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
-                    <img className="object-contain w-full h-full" src={`https://image.tmdb.org/t/p/original/${enterprise.logo_path}`} alt={enterprise.name} />
+                  <figure className="relative overflow-hidden w-16 h-16 flex-shrink-0 rounded-2xl">
+                    <Image layout='fill' className="object-contain w-full h-full" src={`https://image.tmdb.org/t/p/original/${enterprise.logo_path}`} alt={enterprise.name} />
                   </figure>
                   <div className="mx-4">
                     <h4 className="text-base text-black mb-1 dark:text-white">{enterprise.name}</h4>

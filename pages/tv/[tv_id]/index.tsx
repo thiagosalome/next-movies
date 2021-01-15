@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState, MouseEvent } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { format, parseISO } from 'date-fns'
 import { useRouter } from 'next/router'
@@ -62,7 +63,9 @@ export default function Tv (props: TvProps) {
     let content = <></>
     switch (type) {
       case 'image':
-        content = <img className='rounded-2xl' src={source} />
+        content = (
+          <img className='rounded-2xl' src={source} />
+        )
         break
       case 'video':
         content = (
@@ -99,11 +102,11 @@ export default function Tv (props: TvProps) {
       </Head>
       <section className="bg-gray-100 rounded-tl-3xl h-dashboard-content overflow-y-auto dark:bg-gray-800 xl:h-xl:dashboard-content">
         <div id="banner" className="relative px-4 py-5 xl:px-9">
-          <img src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`} className="absolute top-0 left-0 h-full w-full object-cover" alt={media.name} title={media.name} />
+          <Image layout='fill' src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`} className="absolute top-0 left-0 h-full w-full object-cover" alt={media.name} title={media.name} />
           <button onClick={handleClickBack} className="absolute focus:outline-none left-4 top-6 xl:left-8"><IoMdArrowBack color="#FFFFFF" size={35} /></button>
           <div className="relative mt-16 xl:flex xl:items-start xl:mt-48">
-            <figure className="w-32 h-44 mb-4 overflow-hidden rounded-xl xl:w-56 xl:h-80 xl:w xl:-mb-44">
-              <img src={`https://image.tmdb.org/t/p/w500/${media.poster_path}`} className="h-full w-full object-cover" alt="Fear the Walking Dead" title="Fear the Walking Dead" />
+            <figure className="relative w-32 h-44 mb-4 overflow-hidden rounded-xl xl:w-56 xl:h-80 xl:w xl:-mb-44">
+              <Image layout='fill' src={`https://image.tmdb.org/t/p/w500/${media.poster_path}`} className="h-full w-full object-cover" alt="Fear the Walking Dead" title="Fear the Walking Dead" />
             </figure>
             <div className="bg-black bg-opacity-30 p-3 rounded-2xl xl:ml-6">
               <span className="text-sm text-white">{format(parseISO(media.last_air_date), 'yyyy')}</span>
@@ -168,43 +171,43 @@ export default function Tv (props: TvProps) {
           <div className="grid grid-cols-background-images grid-rows-background-images gap-5 mt-6 -mx-4 px-4 overflow-x-auto xl:grid-cols-12">
             {
               media.images.backdrops[0] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-4 ">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-4 ">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[0].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[1] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-4 xl:col-end-8 ">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-4 xl:col-end-8 ">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[1].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[2] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-8 xl:col-end-13">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-8 xl:col-end-13">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[2].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[3] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-6">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-1 xl:col-end-6">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[3].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[4] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-6 xl:col-end-10">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-6 xl:col-end-10">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[4].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }
             {
               media.images.backdrops[5] && (
-                <figure className="overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-10 xl:col-end-13">
-                  <img onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
+                <figure className="relative overflow-hidden h-full w-full rounded-2xl cursor-pointer xl:col-start-10 xl:col-end-13">
+                  <Image layout='fill' onClick={(evt: MouseEvent<HTMLImageElement>) => handleContentModal(evt.currentTarget.src, 'image')} src={`https://image.tmdb.org/t/p/w533_and_h300_bestv2/${media.images.backdrops[5].file_path}`} className="h-full w-full object-cover" alt="" />
                 </figure>
               )
             }

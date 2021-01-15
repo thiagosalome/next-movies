@@ -9,6 +9,7 @@ Requisitos Técnicos:
     ✔ Utilizar getStaticPaths para Dynamic Routes @done (1/14/2021, 2:31:31 PM)
     ✔ Utilizar API routes @done (1/14/2021, 2:32:01 PM)
     ✔ Utilizar SWR (Filme do dia) @done (1/14/2021, 3:15:09 PM)
+    ✔ Utilizar Image Optimization @done (1/15/2021, 12:19:05 PM)
   ✔ Utilizar TailwindCSS @done (1/14/2021, 3:26:11 PM)
     ✔ Mobile First @done (11/29/2020, 4:41:15 PM)
     ✔ Hover, Focus, & Other States (Hover, Groups-hover) @done (1/14/2021, 3:16:16 PM)
