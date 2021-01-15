@@ -111,7 +111,7 @@ O **Next Movies** foi um projeto criado utilizando a API do [The Movie Database]
 
 ### Web
 
-<img src="./.github/preview-web-test.gif" alt="Preview Web" title="Preview Web">
+<img src="./.github/preview-web.gif" alt="Preview Web" title="Preview Web">
 
 ## :rocket: Executando o projeto
 
