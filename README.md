@@ -27,7 +27,7 @@
 
 O **Next Movies** foi um projeto criado utilizando a API do [The Movie Database](https://developers.themoviedb.org/3) para listagem de filmes de streaming, para tv, para alugar e nos cinemas. O principal motivo de sua criação foi o estudo prático dos frameworks [Next.js](https://nextjs.org/) e [Tailwind CSS](https://tailwindcss.com/).
 
-### Conceitos e utilitários aplicados de cada framework
+### Conceitos e ferramentas aplicados de cada framework
 
 - [x] [Next.js](https://nextjs.org/)
   - [x] [next/link](https://nextjs.org/docs/api-reference/next/link)
